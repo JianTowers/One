@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MarqueeView">
+        <attr name="scrollType">
+            <enum name="no" value="1" />
+            <enum name="vertical" value="2" />
+            <enum name="horizontal" value="3" />
+        </attr>
+        <attr name="speedType">
+            <enum name="stop" value="4" />
+            <enum name="slow" value="5" />
+            <enum name="fast" value="6" />
+            <enum name="express" value="7" />
+        </attr>
+
+        <attr name="textColor" format="color" />
+
+        <!--行高，只对垂直滚动有效-->
+        <attr name="lineSpace" format="integer" />
+    </declare-styleable>
+
+<!--    自定义密码框-->
+    <declare-styleable name="PasswordView">
+        <attr name="password_setViewBackground" format="reference|color"></attr>
+        <attr name="password_enableHideCode" format="boolean"></attr>
+        <attr name="password_enableHideBoxWhenNotInput" format="boolean"></attr>
+        <attr name="password_enableHideCodeSetText" format="string"></attr>
+        <attr name="password_enableCursor" format="boolean"></attr>
+        <attr name="password_enableHighLight" format="boolean"></attr>
+        <attr name="password_enableSoftKeyboardAutoShow" format="boolean"></attr>
+        <attr name="password_enableSoftKeyboardAutoClose" format="boolean"></attr>
+        <attr name="password_enableLockTextView" format="boolean"></attr>
+        <attr name="password_text_setColor" format="color"></attr>
+        <attr name="password_text_setSize" format="integer"></attr>
+        <attr name="password_text_setInputType" format="integer">
+            <enum name="Number" value="200" />
+            <enum name="Phone" value="201" />
+            <enum name="Text" value="202" />
+            <enum name="DateTime" value="203" />
+        </attr>
+        <attr name="password_text_setIsBold" format="boolean"></attr>
+        <attr name="password_box_setNumber" format="integer"></attr>
+        <attr name="password_box_setMargin" format="integer"></attr>
+        <attr name="password_box_setSize" format="integer"></attr>
+
+        <attr name="password_box_notInput_backgroundDrawable" format="reference|color"></attr>
+        <attr name="password_box_locked_backgroundDrawable" format="reference|color"></attr>
+        <attr name="password_box_highLight_backgroundDrawable" format="reference|color"></attr>
+        <attr name="password_box_hasInput_backgroundDrawable" format="reference|color"></attr>
+
+        <attr name="password_cursorHeight" format="integer"></attr>
+        <attr name="password_cursorWidth" format="integer"></attr>
+        <attr name="password_cursorFrequencyMillisecond" format="integer"></attr>
+        <attr name="password_cursorBackgroundDrawable" format="reference|color"></attr>
+        <attr name="password_cursorColor" format="reference|color"></attr>
+    </declare-styleable>
+
+</resources>
