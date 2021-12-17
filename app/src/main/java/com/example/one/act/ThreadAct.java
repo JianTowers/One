@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,18 +17,21 @@ import java.util.TimerTask;
 
 public class ThreadAct extends AppCompatActivity {
     TextView tvThread,tvThread2,tvThread3;
+    Button btThread;
 
     /**
      * 主线程
      */
     private Timer timer = new Timer();
     private Timer timer2 = new Timer();
-    private Timer timer3 = new Timer();
     private Handler mHandler;
+    private TimerTask timerTask;
 
 
     int i = 0;
-    int i2 = 0;
+
+    private boolean isRunning = true;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,18 +40,22 @@ public class ThreadAct extends AppCompatActivity {
         tvThread = (TextView) findViewById(R.id.tv_thread);
         tvThread2 = (TextView) findViewById(R.id.tv_thread2);
         tvThread3 = (TextView) findViewById(R.id.tv_thread3);
+        btThread = (Button) findViewById(R.id.bt_thread);
         setAction();
+        btThread.setOnClickListener(v -> {
+            if (isRunning){
+                timer.cancel();
+                isRunning = false;
+            }
+            else {
+            }
+        });
     }
 
     private void setAction() {
         mHandler = new Handler() {
             @Override
             public void handleMessage(@NonNull Message msg) {
-                if (msg.what == 0) {
-                    String text = Integer.toString(i);
-                    tvThread.setText(text);
-                    i--;
-                }
                 if (msg.what == 1) {
                     String text2 = Integer.toString(i);
                     tvThread2.setText(text2);
@@ -61,14 +69,25 @@ public class ThreadAct extends AppCompatActivity {
             }
         };
 
-        timer.schedule(new TimerTask() {
+        /**
+        *定时线程的两种方法
+        */
+        timerTask = new TimerTask() {
             @Override
             public void run() {
-                Message message = new Message();
-                message.what = 0;
-                mHandler.sendMessage(message);
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        String text = Integer.toString(i);
+                        tvThread.setText(text);
+                        i=i+10;
+                    }
+                });
             }
-        }, 0, 2000);
+        };
+
+
+        timer.schedule(timerTask,0,1000);
 
         timer2.schedule(new TimerTask() {
             @Override
@@ -79,7 +98,7 @@ public class ThreadAct extends AppCompatActivity {
             }
         }, 0, 100);
 
-        timer.schedule(new TimerTask() {
+        timer2.schedule(new TimerTask() {
             @Override
             public void run() {
                 Message message = new Message();
