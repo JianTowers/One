@@ -18,7 +18,7 @@ import com.example.one.server.AlarmReceiver;
 
 import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity{
+public class MainAct extends AppCompatActivity{
     private Button btAlarm,btTherad,btObserver;
 
     /**
@@ -49,12 +49,12 @@ public class MainActivity extends AppCompatActivity{
         });
 
         btTherad.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this,ThreadAct.class);
+            Intent intent = new Intent(MainAct.this,ThreadAct.class);
             startActivity(intent);
         });
 
         btObserver.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this,QuestionAct.class);
+            Intent intent = new Intent(MainAct.this,QuestionAct.class);
             startActivity(intent);
         });
 
@@ -73,9 +73,9 @@ public class MainActivity extends AppCompatActivity{
                 Calendar c = Calendar.getInstance();    //获取日期对象
                 c.set(Calendar.HOUR_OF_DAY, hourOfDay); //设置闹钟小时数
                 c.set(Calendar.MINUTE, minute); //设置闹钟分钟数
-                Intent intent = new Intent(MainActivity.this, AlarmReceiver.class);
+                Intent intent = new Intent(MainAct.this, AlarmReceiver.class);
                 //创建pendingIntent
-                PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0X102, intent, 0);
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(MainAct.this, 0X102, intent, 0);
                 //设置闹钟
                 alarmManager.set(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
                 LogUtils.d("闹钟设置成功");

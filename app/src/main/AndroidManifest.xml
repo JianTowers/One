@@ -22,10 +22,10 @@
             android:name=".act.ThreadAct"
             android:exported="false" />
         <activity
-            android:name=".act.AlarmActivity"
+            android:name=".act.AlarmAct"
             android:exported="false" />
         <activity
-            android:name=".act.MainActivity"
+            android:name=".act.MainAct"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

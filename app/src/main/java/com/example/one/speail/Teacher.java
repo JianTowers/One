@@ -11,7 +11,7 @@ public class Teacher extends Observable {
     private Teacher(){
     }
 
-    private static Teacher teacher = null;
+    private volatile static Teacher teacher;
 
     public static Teacher getInstance(){
         if (teacher ==null){
