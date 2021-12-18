@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.one.R;
+import com.example.one.speail.ThreadApi;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -27,11 +28,12 @@ public class ThreadAct extends AppCompatActivity {
     private Handler mHandler;
     private TimerTask timerTask;
 
-
     int i = 0;
 
-    private boolean isRunning = true;
-
+    /**
+    *封装线程测试
+    */
+    private boolean isTest = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +45,12 @@ public class ThreadAct extends AppCompatActivity {
         btThread = (Button) findViewById(R.id.bt_thread);
         setAction();
         btThread.setOnClickListener(v -> {
-            if (isRunning){
-                timer.cancel();
-                isRunning = false;
-            }
-            else {
+            if(!isTest){
+                ThreadApi.getInstance().doPrintLog();
+                isTest = true;
+            }else {
+                ThreadApi.getInstance().stopPrintLog();
+                isTest = false;
             }
         });
     }
