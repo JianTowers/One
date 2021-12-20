@@ -38,8 +38,6 @@ public class ThreadApi {
     }
 
     public void doPrintLog() {
-
-
         handler = new Handler() {
             @Override
             public void handleMessage(@NonNull Message msg) {
@@ -58,7 +56,7 @@ public class ThreadApi {
             }
         };
 
-        timer.schedule(timerTask,0,5000);
+        timer.schedule(timerTask,0,2000);
     }
 
     public void stopPrintLog() {

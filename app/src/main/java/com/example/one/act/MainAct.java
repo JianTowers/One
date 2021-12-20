@@ -15,11 +15,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.blankj.utilcode.util.LogUtils;
 import com.example.one.R;
 import com.example.one.server.AlarmReceiver;
+import com.example.one.speail.ThreadApi;
 
 import java.util.Calendar;
 
 public class MainAct extends AppCompatActivity{
-    private Button btAlarm,btTherad,btObserver;
+    private Button btAlarm,btTherad,btObserver,btThread2;
 
     /**
     *闹钟管理器
@@ -38,6 +39,7 @@ public class MainAct extends AppCompatActivity{
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         btTherad = (Button) findViewById(R.id.bt_thread);
         btObserver = (Button) findViewById(R.id.bt_observer);
+        btThread2 = (Button) findViewById(R.id.bt_thread2);
     }
 
     private void onRun(){
@@ -49,6 +51,7 @@ public class MainAct extends AppCompatActivity{
         });
 
         btTherad.setOnClickListener(v -> {
+            ThreadApi.getInstance().stopPrintLog();
             Intent intent = new Intent(MainAct.this,ThreadAct.class);
             startActivity(intent);
         });
@@ -58,6 +61,9 @@ public class MainAct extends AppCompatActivity{
             startActivity(intent);
         });
 
+        btThread2.setOnClickListener(v -> {
+            ThreadApi.getInstance().doPrintLog();
+        });
     }
 
     public void setClock(View view){
