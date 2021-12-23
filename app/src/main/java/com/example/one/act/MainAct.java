@@ -20,7 +20,7 @@ import com.example.one.speail.ThreadApi;
 import java.util.Calendar;
 
 public class MainAct extends AppCompatActivity{
-    private Button btAlarm,btTherad,btObserver,btThread2;
+    private Button btAlarm,btTherad,btObserver,btThread2,btString;
 
     /**
     *闹钟管理器
@@ -40,6 +40,7 @@ public class MainAct extends AppCompatActivity{
         btTherad = (Button) findViewById(R.id.bt_thread);
         btObserver = (Button) findViewById(R.id.bt_observer);
         btThread2 = (Button) findViewById(R.id.bt_thread2);
+        btString = (Button) findViewById(R.id.bt_String);
     }
 
     private void onRun(){
@@ -63,6 +64,14 @@ public class MainAct extends AppCompatActivity{
 
         btThread2.setOnClickListener(v -> {
             ThreadApi.getInstance().doPrintLog();
+        });
+
+        btString.setOnClickListener(v -> {
+            String strTest = "带我去看看可好";
+            boolean status = strTest.contains("看");
+            if (status){
+                LogUtils.d("包含字符串");
+            }
         });
     }
 
