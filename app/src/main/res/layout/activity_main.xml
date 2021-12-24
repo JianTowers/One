@@ -54,4 +54,22 @@
         app:layout_constraintLeft_toRightOf="@id/bt_thread2"
         app:layout_constraintTop_toTopOf="@id/bt_thread2"/>
 
+    <Button
+        android:id="@+id/bt_Code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="二维码"
+        app:layout_constraintLeft_toRightOf="@id/bt_String"
+        app:layout_constraintTop_toTopOf="@id/bt_thread2"/>
+
+    <Button
+        android:id="@+id/bt_Calculator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="计算器"
+        app:layout_constraintTop_toBottomOf="@id/bt_thread2"
+        app:layout_constraintLeft_toLeftOf="@id/bt_thread2"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

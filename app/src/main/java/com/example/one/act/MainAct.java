@@ -19,13 +19,15 @@ import com.example.one.speail.ThreadApi;
 
 import java.util.Calendar;
 
-public class MainAct extends AppCompatActivity{
-    private Button btAlarm,btTherad,btObserver,btThread2,btString;
+public class MainAct extends AppCompatActivity {
+    private Button btAlarm, btTherad, btObserver, btThread2, btString, btCode;
+    private Button btCalcuator;
 
     /**
-    *闹钟管理器
-    */
+     * 闹钟管理器
+     */
     private AlarmManager alarmManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,16 +37,18 @@ public class MainAct extends AppCompatActivity{
         onRun();
     }
 
-    private void initView(){
+    private void initView() {
         btAlarm = (Button) findViewById(R.id.bt_alarm);
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         btTherad = (Button) findViewById(R.id.bt_thread);
         btObserver = (Button) findViewById(R.id.bt_observer);
         btThread2 = (Button) findViewById(R.id.bt_thread2);
         btString = (Button) findViewById(R.id.bt_String);
+        btCode = (Button) findViewById(R.id.bt_Code);
+        btCalcuator = (Button) findViewById(R.id.bt_Calculator);
     }
 
-    private void onRun(){
+    private void onRun() {
         btAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,12 +58,12 @@ public class MainAct extends AppCompatActivity{
 
         btTherad.setOnClickListener(v -> {
             ThreadApi.getInstance().stopPrintLog();
-            Intent intent = new Intent(MainAct.this,ThreadAct.class);
+            Intent intent = new Intent(MainAct.this, ThreadAct.class);
             startActivity(intent);
         });
 
         btObserver.setOnClickListener(v -> {
-            Intent intent = new Intent(MainAct.this,QuestionAct.class);
+            Intent intent = new Intent(MainAct.this, QuestionAct.class);
             startActivity(intent);
         });
 
@@ -68,14 +72,22 @@ public class MainAct extends AppCompatActivity{
         });
 
         btString.setOnClickListener(v -> {
-            Intent intent = new Intent(MainAct.this,MainAct.class);
+            Intent intent = new Intent(MainAct.this, MainAct.class);
             startActivity(intent);
             finish();
-            overridePendingTransition(0,0);
+            overridePendingTransition(0, 0);
+        });
+
+        btCode.setOnClickListener(v -> {
+            startActivity(new Intent(MainAct.this,CodeAct.class));
+        });
+
+        btCalcuator.setOnClickListener(v -> {
+            startActivity(new Intent(MainAct.this,CalculatorAct.class));
         });
     }
 
-    public void setClock(View view){
+    public void setClock(View view) {
         //获取当前系统时间
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
@@ -95,7 +107,7 @@ public class MainAct extends AppCompatActivity{
                 alarmManager.set(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
                 LogUtils.d("闹钟设置成功");
             }
-        },hour,minute,true);
+        }, hour, minute, true);
         timePickerDialog.show();
     }
 }
