@@ -29,6 +29,7 @@ public class MainAct extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LogUtils.d("已刷新页面");
         setContentView(R.layout.activity_main);
         initView();
         onRun();
@@ -67,11 +68,10 @@ public class MainAct extends AppCompatActivity{
         });
 
         btString.setOnClickListener(v -> {
-            String strTest = "带我去看看可好";
-            boolean status = strTest.contains("看");
-            if (status){
-                LogUtils.d("包含字符串");
-            }
+            Intent intent = new Intent(MainAct.this,MainAct.class);
+            startActivity(intent);
+            finish();
+            overridePendingTransition(0,0);
         });
     }
 
