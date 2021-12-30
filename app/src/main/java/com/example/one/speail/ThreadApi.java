@@ -56,13 +56,16 @@ public class ThreadApi {
             }
         };
 
-        timer.schedule(timerTask,0,2000);
+        timer.schedule(timerTask, 0, 2000);
     }
 
     public void stopPrintLog() {
         if (timer != null) {
             timer.cancel();
-            timerTask.cancel();
+            if (timerTask != null) {
+                timerTask.cancel();
+            }
+
             threadApi = null;
         }
     }

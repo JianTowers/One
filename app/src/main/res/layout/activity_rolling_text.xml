@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".act.RollingTextAct">
+
+    <Button
+        android:id="@+id/bt_RollingChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="更换Text"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <com.example.one.view.RollingTextView
+        android:id="@+id/tv_Rolling"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text=""
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:scrollType="vertical"
+        app:speedType="fast"
+        app:textColor="#ffffff" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

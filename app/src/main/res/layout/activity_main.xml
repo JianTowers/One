@@ -10,31 +10,31 @@
         android:id="@+id/bt_alarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         android:text="设置闹钟"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/bt_thread"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         android:text="线程测试"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/bt_alarm"/>
+        app:layout_constraintLeft_toRightOf="@id/bt_alarm"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/bt_observer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         android:text="观察者模式测试"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/bt_thread"/>
+        app:layout_constraintLeft_toRightOf="@id/bt_thread"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/bt_thread2"
@@ -43,7 +43,7 @@
         android:layout_marginTop="10dp"
         android:text="线程跨act测试"
         app:layout_constraintLeft_toLeftOf="@id/bt_alarm"
-        app:layout_constraintTop_toBottomOf="@id/bt_alarm"/>
+        app:layout_constraintTop_toBottomOf="@id/bt_alarm" />
 
     <Button
         android:id="@+id/bt_String"
@@ -52,7 +52,7 @@
         android:layout_marginLeft="10dp"
         android:text="刷新页面测试"
         app:layout_constraintLeft_toRightOf="@id/bt_thread2"
-        app:layout_constraintTop_toTopOf="@id/bt_thread2"/>
+        app:layout_constraintTop_toTopOf="@id/bt_thread2" />
 
     <Button
         android:id="@+id/bt_Code"
@@ -61,15 +61,55 @@
         android:layout_marginLeft="10dp"
         android:text="二维码"
         app:layout_constraintLeft_toRightOf="@id/bt_String"
-        app:layout_constraintTop_toTopOf="@id/bt_thread2"/>
+        app:layout_constraintTop_toTopOf="@id/bt_thread2" />
 
     <Button
         android:id="@+id/bt_Calculator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="计算器"
-        app:layout_constraintTop_toBottomOf="@id/bt_thread2"
-        app:layout_constraintLeft_toLeftOf="@id/bt_thread2"/>
+        app:layout_constraintLeft_toLeftOf="@id/bt_thread2"
+        app:layout_constraintTop_toBottomOf="@id/bt_thread2" />
+
+    <Button
+        android:id="@+id/bt_MyTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Timer暂停与恢复"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toRightOf="@id/bt_Calculator"
+        app:layout_constraintTop_toTopOf="@id/bt_Calculator" />
+
+    <Button
+        android:id="@+id/bt_RollingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="滚动字幕测试"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toRightOf="@id/bt_MyTimer"
+        app:layout_constraintTop_toTopOf="@id/bt_Calculator" />
+
+    <Button
+        android:id="@+id/bt_Permission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="动态权限"
+        app:layout_constraintLeft_toLeftOf="@id/bt_thread2"
+        app:layout_constraintTop_toBottomOf="@id/bt_Calculator"/>
+
+    <Button
+        android:id="@+id/bt_Battery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="手机电量"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toRightOf="@id/bt_Permission"
+        app:layout_constraintTop_toTopOf="@id/bt_Permission" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

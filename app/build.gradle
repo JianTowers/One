@@ -43,4 +43,6 @@ dependencies {
     //二维码
     implementation 'com.google.zxing:core:3.3.3'
     implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
+    //郭霖大神动态权限
+    implementation 'com.guolindev.permissionx:permissionx:1.6.1'
 }

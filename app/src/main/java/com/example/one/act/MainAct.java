@@ -1,14 +1,17 @@
 package com.example.one.act;
 
+import android.Manifest;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,12 +19,14 @@ import com.blankj.utilcode.util.LogUtils;
 import com.example.one.R;
 import com.example.one.server.AlarmReceiver;
 import com.example.one.speail.ThreadApi;
+import com.permissionx.guolindev.PermissionX;
 
 import java.util.Calendar;
 
 public class MainAct extends AppCompatActivity {
     private Button btAlarm, btTherad, btObserver, btThread2, btString, btCode;
-    private Button btCalcuator;
+    private Button btCalcuator, btMyTimer, btRollingText;
+    private Button btPermission,btBattery;
 
     /**
      * 闹钟管理器
@@ -31,7 +36,6 @@ public class MainAct extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LogUtils.d("已刷新页面");
         setContentView(R.layout.activity_main);
         initView();
         onRun();
@@ -46,6 +50,10 @@ public class MainAct extends AppCompatActivity {
         btString = (Button) findViewById(R.id.bt_String);
         btCode = (Button) findViewById(R.id.bt_Code);
         btCalcuator = (Button) findViewById(R.id.bt_Calculator);
+        btMyTimer = (Button) findViewById(R.id.bt_MyTimer);
+        btRollingText = (Button) findViewById(R.id.bt_RollingText);
+        btPermission = (Button) findViewById(R.id.bt_Permission);
+        btBattery = (Button) findViewById(R.id.bt_Battery);
     }
 
     private void onRun() {
@@ -79,14 +87,47 @@ public class MainAct extends AppCompatActivity {
         });
 
         btCode.setOnClickListener(v -> {
-            startActivity(new Intent(MainAct.this,CodeAct.class));
+            startActivity(new Intent(MainAct.this, CodeAct.class));
         });
 
         btCalcuator.setOnClickListener(v -> {
-            startActivity(new Intent(MainAct.this,CalculatorAct.class));
+            startActivity(new Intent(MainAct.this, CalculatorAct.class));
+        });
+
+        btMyTimer.setOnClickListener(v -> {
+            startActivity(new Intent(MainAct.this, MyTimerAct.class));
+        });
+
+        btRollingText.setOnClickListener(v -> {
+            startActivity(new Intent(MainAct.this, RollingTextAct.class));
+        });
+
+        //动态权限获取
+        btPermission.setOnClickListener(v -> {
+            PermissionX.init(this).
+                    permissions(Manifest.permission.READ_CONTACTS, Manifest.permission.CAMERA, Manifest.permission.CALL_PHONE)
+                    .onExplainRequestReason((scope, deniedList) -> {
+                        scope.showRequestReasonDialog(deniedList, "UmsCamEpp需要您同意以下授权才能正常使用", "同意", "拒绝");
+                    })
+                    .request(((allGranted, grantedList, deniedList) -> {
+                        if (allGranted) {
+                            Toast.makeText(this, "您同意了所有权限!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(this, "您拒绝了以下权限:" + deniedList, Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    }));
+        });
+
+        //手机电量
+        btBattery.setOnClickListener(v -> {
+            getSystemBattery(this);
         });
     }
 
+    /**
+    *闹钟服务
+    */
     public void setClock(View view) {
         //获取当前系统时间
         Calendar calendar = Calendar.getInstance();
@@ -110,4 +151,18 @@ public class MainAct extends AppCompatActivity {
         }, hour, minute, true);
         timePickerDialog.show();
     }
+
+    /**
+    *手机电量
+    */
+    private void getSystemBattery(Context context) {
+        int level = 0;
+        Intent batteryInfoIntent = context.getApplicationContext().registerReceiver(null,
+                new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        level = batteryInfoIntent.getIntExtra("level", 0);
+        int batterySum = batteryInfoIntent.getIntExtra("scale", 100);
+        int percentBattery= 100 *  level / batterySum;
+        LogUtils.d("手机当前电量"+percentBattery);
+    }
+
 }
