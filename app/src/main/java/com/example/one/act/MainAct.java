@@ -26,7 +26,7 @@ import java.util.Calendar;
 public class MainAct extends AppCompatActivity {
     private Button btAlarm, btTherad, btObserver, btThread2, btString, btCode;
     private Button btCalcuator, btMyTimer, btRollingText;
-    private Button btPermission,btBattery;
+    private Button btPermission,btBattery,btMarqueeview;
 
     /**
      * 闹钟管理器
@@ -54,6 +54,7 @@ public class MainAct extends AppCompatActivity {
         btRollingText = (Button) findViewById(R.id.bt_RollingText);
         btPermission = (Button) findViewById(R.id.bt_Permission);
         btBattery = (Button) findViewById(R.id.bt_Battery);
+        btMarqueeview = (Button) findViewById(R.id.bt_Marqueeview);
     }
 
     private void onRun() {
@@ -100,6 +101,10 @@ public class MainAct extends AppCompatActivity {
 
         btRollingText.setOnClickListener(v -> {
             startActivity(new Intent(MainAct.this, RollingTextAct.class));
+        });
+
+        btMarqueeview.setOnClickListener(v -> {
+            startActivity(new Intent(MainAct.this,MarqueeviewAct.class));
         });
 
         //动态权限获取

@@ -111,5 +111,14 @@
         app:layout_constraintLeft_toRightOf="@id/bt_Permission"
         app:layout_constraintTop_toTopOf="@id/bt_Permission" />
 
+    <Button
+        android:id="@+id/bt_Marqueeview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Marqueeview"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toRightOf="@id/bt_Battery"
+        app:layout_constraintTop_toTopOf="@id/bt_Permission" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

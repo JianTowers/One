@@ -45,4 +45,7 @@ dependencies {
     implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
     //郭霖大神动态权限
     implementation 'com.guolindev.permissionx:permissionx:1.6.1'
+    //滚动字幕跑马灯（类似歌词）
+    implementation 'com.sunfusheng:marqueeview:1.3.3'
+
 }
