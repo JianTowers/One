@@ -112,11 +112,12 @@ public class AnimationTextLayout extends FrameLayout {
         for (int i = 0; i < viewList.size(); i++) {
             TextView textView = viewList.get(i);
             VirtualPos virtualPos = virtualPosList.get(i);
+            textView.setLineSpacing(20,3);
             int realY = (int) ((100 - virtualPos.y) / 200 * getMeasuredHeight());
             FrameLayout.LayoutParams layoutParams = (LayoutParams) textView.getLayoutParams();
             layoutParams.topMargin = realY;
             if (virtualPos.z >= 0) {
-                float textSize = (float) ((virtualPos.z) / 100) * 20 + 5;
+                float textSize = (float) ((virtualPos.z) / 100) * 15+5;
                 if (monClickSize != null && textSize > 22) {
                     if (!isFirst){
                         monClickSize.onClickStop();
@@ -151,10 +152,11 @@ public class AnimationTextLayout extends FrameLayout {
         TextView textView = new TextView(getContext());
         textView.setTextSize(20);
         textView.setTextColor(Color.WHITE);
-        textView.setPadding(ConvertUtils.dp2px(5), ConvertUtils.dp2px(3), ConvertUtils.dp2px(5), ConvertUtils.dp2px(3));
+        textView.setLineSpacing(20,3);
+        textView.setPadding(ConvertUtils.dp2px(20), ConvertUtils.dp2px(20), ConvertUtils.dp2px(20), ConvertUtils.dp2px(20));
         LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.gravity = Gravity.CENTER_HORIZONTAL;
-        layoutParams.rightMargin = ConvertUtils.dp2px(6);
+        layoutParams.rightMargin = ConvertUtils.dp2px(20);
         addView(textView, layoutParams);
         viewList.add(textView);
         return textView;

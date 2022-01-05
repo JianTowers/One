@@ -11,6 +11,7 @@
         android:id="@+id/marqueeView"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="50dp"
         app:mvAnimDuration="1000"
         app:mvDirection="bottom_to_top"
         app:mvInterval="3000"
@@ -19,20 +20,24 @@
         app:mvSingleLine="true"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/VertiaclView"/>
+        app:layout_constraintTop_toBottomOf="@id/textBanner"/>
 
-    <com.example.one.view.VerticalScrolledListview
-        android:id="@+id/VertiaclView"
-        android:layout_marginTop="40dp"
+    <com.superluo.textbannerlibrary.TextBannerView
+        android:id="@+id/textBanner"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
+        app:setInterval="500"
+        app:setAnimDuration="500"
+        app:setGravity="center"
+        app:setTextColor="#ffffff"
+        app:setDirection="bottom_to_top"
         app:layout_constraintTop_toTopOf="parent"/>
-
 
     <com.example.one.view.AnimationTextLayout
         android:id="@+id/animationText"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button

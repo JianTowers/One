@@ -37,7 +37,6 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation 'com.blankj:utilcodex:1.30.6'
     //util工具类
     implementation 'com.blankj:utilcodex:1.30.6'
     //二维码
@@ -47,5 +46,7 @@ dependencies {
     implementation 'com.guolindev.permissionx:permissionx:1.6.1'
     //滚动字幕跑马灯（类似歌词）
     implementation 'com.sunfusheng:marqueeview:1.3.3'
+
+    implementation 'com.superluo:textbannerview:1.0.5'
 
 }
