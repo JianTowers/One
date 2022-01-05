@@ -47,6 +47,10 @@ dependencies {
     //滚动字幕跑马灯（类似歌词）
     implementation 'com.sunfusheng:marqueeview:1.3.3'
 
+    //TextBanner
     implementation 'com.superluo:textbannerview:1.0.5'
-
+    //基础的 OkSocket 功能集成包.您的Socket开发无论是客户端还是Java,都需要此包 (必须集成)
+    api 'com.tonystark.android:socket:4.1.0'
+    //如果您需要使用 OkSocketServer 功能在客户端或者Java程序,您还需要依赖下面的Server插件包和上面的一起依赖.
+    api 'com.tonystark.android:socket-server:4.1.0'
 }

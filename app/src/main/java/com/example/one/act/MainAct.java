@@ -27,6 +27,7 @@ public class MainAct extends AppCompatActivity {
     private Button btAlarm, btTherad, btObserver, btThread2, btString, btCode;
     private Button btCalcuator, btMyTimer, btRollingText;
     private Button btPermission,btBattery,btMarqueeview;
+    private Button btSocket;
 
     /**
      * 闹钟管理器
@@ -55,6 +56,7 @@ public class MainAct extends AppCompatActivity {
         btPermission = (Button) findViewById(R.id.bt_Permission);
         btBattery = (Button) findViewById(R.id.bt_Battery);
         btMarqueeview = (Button) findViewById(R.id.bt_Marqueeview);
+        btSocket = (Button) findViewById(R.id.bt_Socket);
     }
 
     private void onRun() {
@@ -127,6 +129,10 @@ public class MainAct extends AppCompatActivity {
         //手机电量
         btBattery.setOnClickListener(v -> {
             getSystemBattery(this);
+        });
+
+        btSocket.setOnClickListener(v -> {
+            startActivity(new Intent(MainAct.this,SocketAct.class));
         });
     }
 
