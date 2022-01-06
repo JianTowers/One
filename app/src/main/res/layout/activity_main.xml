@@ -139,6 +139,24 @@
                 app:layout_constraintLeft_toLeftOf="@id/bt_thread2"
                 app:layout_constraintTop_toBottomOf="@id/bt_Permission" />
 
+            <Button
+                android:id="@+id/bt_Next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="下一页"
+                android:textAllCaps="false"
+                app:layout_constraintTop_toBottomOf="@id/bt_Socket"/>
+
+            <Button
+                android:id="@+id/bt_White_List"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="白名单"
+                android:textAllCaps="false"
+                app:layout_constraintLeft_toLeftOf="@id/bt_alarm"
+                app:layout_constraintTop_toBottomOf="@id/bt_Next"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

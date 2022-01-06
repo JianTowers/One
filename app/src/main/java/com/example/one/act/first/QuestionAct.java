@@ -1,7 +1,6 @@
-package com.example.one.act;
+package com.example.one.act.first;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,7 +23,7 @@ public class QuestionAct extends BaseObAct {
         btQuestion = (Button) findViewById(R.id.bt_question);
         tvQuestion = (TextView) findViewById(R.id.tv_question);
         btQuestion.setOnClickListener(v -> {
-            startActivity(new Intent(QuestionAct.this,AnswerAct.class));
+            startActivity(new Intent(QuestionAct.this, AnswerAct.class));
         });
     }
 

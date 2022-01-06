@@ -10,6 +10,10 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
+<!--    白名单申请-->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/icon_logo"
@@ -19,37 +23,40 @@
         android:theme="@style/Theme.One"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".act.SocketSampleAct"
+            android:name=".act.second.WhiteListAct"
             android:exported="false" />
         <activity
-            android:name=".act.SocketAct"
+            android:name=".act.first.SocketSampleAct"
             android:exported="false" />
         <activity
-            android:name=".act.MarqueeviewAct"
+            android:name=".act.first.SocketAct"
             android:exported="false" />
         <activity
-            android:name=".act.RollingTextAct"
+            android:name=".act.first.MarqueeviewAct"
             android:exported="false" />
         <activity
-            android:name=".act.MyTimerAct"
+            android:name=".act.first.RollingTextAct"
             android:exported="false" />
         <activity
-            android:name=".act.CalculatorAct"
+            android:name=".act.first.MyTimerAct"
             android:exported="false" />
         <activity
-            android:name=".act.CodeAct"
+            android:name=".act.first.CalculatorAct"
             android:exported="false" />
         <activity
-            android:name=".act.AnswerAct"
+            android:name=".act.first.CodeAct"
+            android:exported="false" />
+        <activity
+            android:name=".act.first.AnswerAct"
             android:exported="true" />
         <activity
-            android:name=".act.QuestionAct"
+            android:name=".act.first.QuestionAct"
             android:exported="true" />
         <activity
-            android:name=".act.ThreadAct"
+            android:name=".act.first.ThreadAct"
             android:exported="false" />
         <activity
-            android:name=".act.AlarmAct"
+            android:name=".act.first.AlarmAct"
             android:exported="false" />
         <activity
             android:name=".act.MainAct"

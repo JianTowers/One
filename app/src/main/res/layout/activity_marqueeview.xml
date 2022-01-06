@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".act.MarqueeviewAct"
+    tools:context=".act.first.MarqueeviewAct"
     android:background="@color/black">
 
     <com.sunfusheng.marqueeview.MarqueeView

@@ -1,4 +1,4 @@
-package com.example.one.act;
+package com.example.one.act.first;
 
 import android.os.Bundle;
 import android.view.View;

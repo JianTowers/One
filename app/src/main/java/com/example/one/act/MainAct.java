@@ -17,6 +17,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.example.one.R;
+import com.example.one.act.first.CalculatorAct;
+import com.example.one.act.first.CodeAct;
+import com.example.one.act.first.MarqueeviewAct;
+import com.example.one.act.first.MyTimerAct;
+import com.example.one.act.first.QuestionAct;
+import com.example.one.act.first.RollingTextAct;
+import com.example.one.act.first.SocketAct;
+import com.example.one.act.first.ThreadAct;
+import com.example.one.act.second.WhiteListAct;
 import com.example.one.server.AlarmReceiver;
 import com.example.one.speail.ThreadApi;
 import com.permissionx.guolindev.PermissionX;
@@ -30,6 +39,11 @@ public class MainAct extends AppCompatActivity {
     private Button btSocket;
 
     /**
+    *第二行
+    */
+    private Button btWhiteList;
+
+    /**
      * 闹钟管理器
      */
     private AlarmManager alarmManager;
@@ -38,11 +52,13 @@ public class MainAct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initView();
-        onRun();
+        initViewFirst();
+        initViewSecond();
+        onRunFirst();
+        onRunSecond();
     }
 
-    private void initView() {
+    private void initViewFirst() {
         btAlarm = (Button) findViewById(R.id.bt_alarm);
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         btTherad = (Button) findViewById(R.id.bt_thread);
@@ -59,7 +75,11 @@ public class MainAct extends AppCompatActivity {
         btSocket = (Button) findViewById(R.id.bt_Socket);
     }
 
-    private void onRun() {
+    private void initViewSecond(){
+        btWhiteList = (Button) findViewById(R.id.bt_White_List);
+    }
+
+    private void onRunFirst() {
         btAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,7 +126,7 @@ public class MainAct extends AppCompatActivity {
         });
 
         btMarqueeview.setOnClickListener(v -> {
-            startActivity(new Intent(MainAct.this,MarqueeviewAct.class));
+            startActivity(new Intent(MainAct.this, MarqueeviewAct.class));
         });
 
         //动态权限获取
@@ -132,7 +152,13 @@ public class MainAct extends AppCompatActivity {
         });
 
         btSocket.setOnClickListener(v -> {
-            startActivity(new Intent(MainAct.this,SocketAct.class));
+            startActivity(new Intent(MainAct.this, SocketAct.class));
+        });
+    }
+
+    private void onRunSecond(){
+        btWhiteList.setOnClickListener(v -> {
+            startActivity(new Intent(MainAct.this, WhiteListAct.class));
         });
     }
 
