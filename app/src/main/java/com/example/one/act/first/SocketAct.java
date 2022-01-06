@@ -40,7 +40,7 @@ import java.util.Enumeration;
 
 public class SocketAct extends AppCompatActivity implements IClientIOCallback {
     private Button btStart;
-    private Button btSample;
+    private Button btSample,btSampleX;
     private TextView textView;
     private int mPort = 8080;
 
@@ -60,6 +60,7 @@ public class SocketAct extends AppCompatActivity implements IClientIOCallback {
 
     private void init(){
         btSample = (Button) findViewById(R.id.bt_Sample);
+        btSampleX = (Button) findViewById(R.id.bt_SampleX);
         textView = (TextView) findViewById(R.id.tv_Socket_ip);
         btStart = (Button) findViewById(R.id.bt_Socket_Start);
         tvRece = (TextView) findViewById(R.id.tv_rece);
@@ -106,6 +107,10 @@ public class SocketAct extends AppCompatActivity implements IClientIOCallback {
                 Intent intent = new Intent(SocketAct.this, SocketSampleAct.class);
                 startActivity(intent);
             }
+        });
+
+        btSampleX.setOnClickListener(v -> {
+            startActivity(new Intent(SocketAct.this,SocketXAct.class));
         });
 
         btStart.setOnClickListener(new View.OnClickListener() {

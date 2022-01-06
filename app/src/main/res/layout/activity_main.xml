@@ -139,6 +139,7 @@
                 app:layout_constraintLeft_toLeftOf="@id/bt_thread2"
                 app:layout_constraintTop_toBottomOf="@id/bt_Permission" />
 
+
             <Button
                 android:id="@+id/bt_Next"
                 android:layout_width="match_parent"
