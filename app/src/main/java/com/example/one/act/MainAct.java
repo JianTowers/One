@@ -25,6 +25,7 @@ import com.example.one.act.first.QuestionAct;
 import com.example.one.act.first.RollingTextAct;
 import com.example.one.act.first.SocketAct;
 import com.example.one.act.first.ThreadAct;
+import com.example.one.act.second.WeatherAct;
 import com.example.one.act.second.WhiteListAct;
 import com.example.one.server.AlarmReceiver;
 import com.example.one.speail.ThreadApi;
@@ -41,7 +42,7 @@ public class MainAct extends AppCompatActivity {
     /**
     *第二行
     */
-    private Button btWhiteList;
+    private Button btWhiteList,btWeather;
 
     /**
      * 闹钟管理器
@@ -73,10 +74,12 @@ public class MainAct extends AppCompatActivity {
         btBattery = (Button) findViewById(R.id.bt_Battery);
         btMarqueeview = (Button) findViewById(R.id.bt_Marqueeview);
         btSocket = (Button) findViewById(R.id.bt_Socket);
+
     }
 
     private void initViewSecond(){
         btWhiteList = (Button) findViewById(R.id.bt_White_List);
+        btWeather = (Button) findViewById(R.id.bt_Weather);
     }
 
     private void onRunFirst() {
@@ -159,6 +162,10 @@ public class MainAct extends AppCompatActivity {
     private void onRunSecond(){
         btWhiteList.setOnClickListener(v -> {
             startActivity(new Intent(MainAct.this, WhiteListAct.class));
+        });
+
+        btWeather.setOnClickListener(v -> {
+            startActivity(new Intent(MainAct.this,WeatherAct.class));
         });
     }
 
