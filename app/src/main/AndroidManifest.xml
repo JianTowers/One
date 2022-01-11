@@ -23,6 +23,12 @@
         android:theme="@style/Theme.One"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".act.second.SplashAct"
+            android:exported="false" />
+        <activity
+            android:name=".act.second.WebAct"
+            android:exported="false" />
+        <activity
             android:name=".act.second.WeatherAct"
             android:exported="false" />
         <activity

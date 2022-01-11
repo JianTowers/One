@@ -61,4 +61,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.7'
     //OKhttp
     implementation 'com.squareup.okhttp3:okhttp:3.12.12'
+
+    //启动页
+    implementation 'me.wangyuwei:ParticleView:1.0.4'
 }

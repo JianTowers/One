@@ -168,6 +168,26 @@
                 app:layout_constraintLeft_toRightOf="@id/bt_White_List"
                 app:layout_constraintTop_toTopOf="@id/bt_White_List" />
 
+            <Button
+                android:id="@+id/bt_WebView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="WebView"
+                android:textAllCaps="false"
+                app:layout_constraintLeft_toRightOf="@id/bt_Weather"
+                app:layout_constraintTop_toTopOf="@id/bt_White_List" />
+
+            <Button
+                android:id="@+id/bt_Splash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="启动页"
+                android:textAllCaps="false"
+                app:layout_constraintLeft_toRightOf="@id/bt_WebView"
+                app:layout_constraintTop_toTopOf="@id/bt_White_List" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

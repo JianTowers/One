@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".act.second.SplashAct">
+
+    <me.wangyuwei.particleview.ParticleView
+        android:id="@+id/pv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/themeColor"
+        app:pv_background_color="@color/themeColor"
+        app:pv_host_text="玩"
+        app:pv_host_text_size="40sp"
+        app:pv_particle_text="Android"
+        app:pv_particle_text_size="28sp"
+        app:pv_text_color="#FFF"
+        app:pv_text_anim_time="3000"
+        app:pv_spread_anim_time="2000"
+        app:pv_host_text_anim_time="3000" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

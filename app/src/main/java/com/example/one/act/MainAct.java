@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -25,7 +26,9 @@ import com.example.one.act.first.QuestionAct;
 import com.example.one.act.first.RollingTextAct;
 import com.example.one.act.first.SocketAct;
 import com.example.one.act.first.ThreadAct;
+import com.example.one.act.second.SplashAct;
 import com.example.one.act.second.WeatherAct;
+import com.example.one.act.second.WebAct;
 import com.example.one.act.second.WhiteListAct;
 import com.example.one.server.AlarmReceiver;
 import com.example.one.speail.ThreadApi;
@@ -42,7 +45,7 @@ public class MainAct extends AppCompatActivity {
     /**
     *第二行
     */
-    private Button btWhiteList,btWeather;
+    private Button btWhiteList,btWeather,btWebView,btSplash;
 
     /**
      * 闹钟管理器
@@ -80,6 +83,8 @@ public class MainAct extends AppCompatActivity {
     private void initViewSecond(){
         btWhiteList = (Button) findViewById(R.id.bt_White_List);
         btWeather = (Button) findViewById(R.id.bt_Weather);
+        btWebView = (Button) findViewById(R.id.bt_WebView);
+        btSplash = (Button) findViewById(R.id.bt_Splash);
     }
 
     private void onRunFirst() {
@@ -166,6 +171,14 @@ public class MainAct extends AppCompatActivity {
 
         btWeather.setOnClickListener(v -> {
             startActivity(new Intent(MainAct.this,WeatherAct.class));
+        });
+
+        btWebView.setOnClickListener(v -> {
+            startActivity(new Intent(MainAct.this, WebAct.class));
+        });
+
+        btSplash.setOnClickListener(v -> {
+            startActivity(new Intent(MainAct.this, SplashAct.class));
         });
     }
 
