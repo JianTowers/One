@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -26,6 +25,7 @@ import com.example.one.act.first.QuestionAct;
 import com.example.one.act.first.RollingTextAct;
 import com.example.one.act.first.SocketAct;
 import com.example.one.act.first.ThreadAct;
+import com.example.one.act.second.FrameAnimationAct;
 import com.example.one.act.second.SplashAct;
 import com.example.one.act.second.WeatherAct;
 import com.example.one.act.second.WebAct;
@@ -35,17 +35,19 @@ import com.example.one.speail.ThreadApi;
 import com.permissionx.guolindev.PermissionX;
 
 import java.util.Calendar;
+import java.util.Locale;
 
 public class MainAct extends AppCompatActivity {
     private Button btAlarm, btTherad, btObserver, btThread2, btString, btCode;
     private Button btCalcuator, btMyTimer, btRollingText;
-    private Button btPermission,btBattery,btMarqueeview;
+    private Button btPermission, btBattery, btMarqueeview;
     private Button btSocket;
 
     /**
-    *第二行
-    */
-    private Button btWhiteList,btWeather,btWebView,btSplash;
+     * 第二行
+     */
+    private Button btWhiteList, btWeather, btWebView, btSplash;
+    private Button btLowercase, btAnimation;
 
     /**
      * 闹钟管理器
@@ -80,11 +82,13 @@ public class MainAct extends AppCompatActivity {
 
     }
 
-    private void initViewSecond(){
+    private void initViewSecond() {
         btWhiteList = (Button) findViewById(R.id.bt_White_List);
         btWeather = (Button) findViewById(R.id.bt_Weather);
         btWebView = (Button) findViewById(R.id.bt_WebView);
         btSplash = (Button) findViewById(R.id.bt_Splash);
+        btLowercase = (Button) findViewById(R.id.bt_Lowercase);
+        btAnimation = (Button) findViewById(R.id.bt_Animation);
     }
 
     private void onRunFirst() {
@@ -164,13 +168,13 @@ public class MainAct extends AppCompatActivity {
         });
     }
 
-    private void onRunSecond(){
+    private void onRunSecond() {
         btWhiteList.setOnClickListener(v -> {
             startActivity(new Intent(MainAct.this, WhiteListAct.class));
         });
 
         btWeather.setOnClickListener(v -> {
-            startActivity(new Intent(MainAct.this,WeatherAct.class));
+            startActivity(new Intent(MainAct.this, WeatherAct.class));
         });
 
         btWebView.setOnClickListener(v -> {
@@ -180,11 +184,20 @@ public class MainAct extends AppCompatActivity {
         btSplash.setOnClickListener(v -> {
             startActivity(new Intent(MainAct.this, SplashAct.class));
         });
+
+        btLowercase.setOnClickListener(v -> {
+            String string = "我是中国adkkk";
+            LogUtils.d(string.toUpperCase(Locale.ROOT));
+        });
+
+        btAnimation.setOnClickListener(v -> {
+            startActivity(new Intent(MainAct.this, FrameAnimationAct.class));
+        });
     }
 
     /**
-    *闹钟服务
-    */
+     * 闹钟服务
+     */
     public void setClock(View view) {
         //获取当前系统时间
         Calendar calendar = Calendar.getInstance();
@@ -210,16 +223,16 @@ public class MainAct extends AppCompatActivity {
     }
 
     /**
-    *手机电量
-    */
+     * 手机电量
+     */
     private void getSystemBattery(Context context) {
         int level = 0;
         Intent batteryInfoIntent = context.getApplicationContext().registerReceiver(null,
                 new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
         level = batteryInfoIntent.getIntExtra("level", 0);
         int batterySum = batteryInfoIntent.getIntExtra("scale", 100);
-        int percentBattery= 100 *  level / batterySum;
-        LogUtils.d("手机当前电量"+percentBattery);
+        int percentBattery = 100 * level / batterySum;
+        LogUtils.d("手机当前电量" + percentBattery);
     }
 
 }

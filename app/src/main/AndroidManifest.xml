@@ -23,6 +23,9 @@
         android:theme="@style/Theme.One"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".act.second.FrameAnimationAct"
+            android:exported="false" />
+        <activity
             android:name=".act.second.SplashAct"
             android:exported="false" />
         <activity

@@ -188,6 +188,25 @@
                 app:layout_constraintLeft_toRightOf="@id/bt_WebView"
                 app:layout_constraintTop_toTopOf="@id/bt_White_List" />
 
+            <Button
+                android:id="@+id/bt_Lowercase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="大小写"
+                app:layout_constraintLeft_toLeftOf="@id/bt_alarm"
+                app:layout_constraintTop_toBottomOf="@id/bt_White_List" />
+
+            <Button
+                android:id="@+id/bt_Animation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="帧动画"
+                android:textAllCaps="false"
+                app:layout_constraintLeft_toRightOf="@id/bt_Lowercase"
+                app:layout_constraintTop_toTopOf="@id/bt_Lowercase" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

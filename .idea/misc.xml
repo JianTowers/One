@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProject/One/app/src/main/res/drawable/fan.xml" value="0.2078125" />
         <entry key="..\:/AndroidProject/One/app/src/main/res/drawable/progress_style.xml" value="0.19895833333333332" />
         <entry key="..\:/AndroidProject/One/app/src/main/res/layout/activity_answer.xml" value="0.1" />
         <entry key="..\:/AndroidProject/One/app/src/main/res/layout/activity_calculator.xml" value="0.15364583333333334" />
         <entry key="..\:/AndroidProject/One/app/src/main/res/layout/activity_code.xml" value="0.24114583333333334" />
+        <entry key="..\:/AndroidProject/One/app/src/main/res/layout/activity_frame_animation.xml" value="0.19166666666666668" />
         <entry key="..\:/AndroidProject/One/app/src/main/res/layout/activity_home.xml" value="0.23007246376811594" />
         <entry key="..\:/AndroidProject/One/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/AndroidProject/One/app/src/main/res/layout/activity_marqueeview.xml" value="0.1" />
