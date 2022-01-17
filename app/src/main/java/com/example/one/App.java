@@ -2,7 +2,10 @@ package com.example.one;
 
 import android.app.Application;
 
+import com.example.one.utils.ParseTools;
 import com.qweather.sdk.view.HeConfig;
+
+import java.util.Properties;
 
 /**
  * @author :JianTao
@@ -24,7 +27,10 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        HeConfig.init("HE2201101641441757","b4f7d99708a146c28e3a1cf4f2b4791a");
+        Properties weather = ParseTools.getInstance().getProperties(getApplicationContext(),"weather.properties");
+        String publicId = weather.getProperty("publicId");
+        String key = weather.getProperty("key");
+        HeConfig.init(publicId,key);
         HeConfig.switchToDevService();
     }
 }

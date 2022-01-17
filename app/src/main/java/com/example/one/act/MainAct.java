@@ -25,6 +25,7 @@ import com.example.one.act.first.QuestionAct;
 import com.example.one.act.first.RollingTextAct;
 import com.example.one.act.first.SocketAct;
 import com.example.one.act.first.ThreadAct;
+import com.example.one.act.second.BaiduAct;
 import com.example.one.act.second.FrameAnimationAct;
 import com.example.one.act.second.SplashAct;
 import com.example.one.act.second.WeatherAct;
@@ -47,7 +48,7 @@ public class MainAct extends AppCompatActivity {
      * 第二行
      */
     private Button btWhiteList, btWeather, btWebView, btSplash;
-    private Button btLowercase, btAnimation;
+    private Button btLowercase, btAnimation, btBaidu;
 
     /**
      * 闹钟管理器
@@ -89,6 +90,7 @@ public class MainAct extends AppCompatActivity {
         btSplash = (Button) findViewById(R.id.bt_Splash);
         btLowercase = (Button) findViewById(R.id.bt_Lowercase);
         btAnimation = (Button) findViewById(R.id.bt_Animation);
+        btBaidu = (Button) findViewById(R.id.bt_Baidu);
     }
 
     private void onRunFirst() {
@@ -144,7 +146,13 @@ public class MainAct extends AppCompatActivity {
         //动态权限获取
         btPermission.setOnClickListener(v -> {
             PermissionX.init(this).
-                    permissions(Manifest.permission.READ_CONTACTS, Manifest.permission.CAMERA, Manifest.permission.CALL_PHONE)
+                    permissions(Manifest.permission.READ_CONTACTS, Manifest.permission.CAMERA, Manifest.permission.CALL_PHONE,
+                            Manifest.permission.INTERNET,
+                            Manifest.permission.ACCESS_NETWORK_STATE,
+                            Manifest.permission.MODIFY_AUDIO_SETTINGS,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                            Manifest.permission.ACCESS_WIFI_STATE,
+                            Manifest.permission.CHANGE_WIFI_STATE)
                     .onExplainRequestReason((scope, deniedList) -> {
                         scope.showRequestReasonDialog(deniedList, "UmsCamEpp需要您同意以下授权才能正常使用", "同意", "拒绝");
                     })
@@ -192,6 +200,10 @@ public class MainAct extends AppCompatActivity {
 
         btAnimation.setOnClickListener(v -> {
             startActivity(new Intent(MainAct.this, FrameAnimationAct.class));
+        });
+
+        btBaidu.setOnClickListener(v -> {
+            startActivity(new Intent(MainAct.this, BaiduAct.class));
         });
     }
 

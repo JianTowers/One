@@ -147,7 +147,7 @@
                 android:layout_marginTop="10dp"
                 android:text="下一页"
                 android:textAllCaps="false"
-                app:layout_constraintTop_toBottomOf="@id/bt_Socket"/>
+                app:layout_constraintTop_toBottomOf="@id/bt_Socket" />
 
             <Button
                 android:id="@+id/bt_White_List"
@@ -156,7 +156,7 @@
                 android:text="白名单"
                 android:textAllCaps="false"
                 app:layout_constraintLeft_toLeftOf="@id/bt_alarm"
-                app:layout_constraintTop_toBottomOf="@id/bt_Next"/>
+                app:layout_constraintTop_toBottomOf="@id/bt_Next" />
 
             <Button
                 android:id="@+id/bt_Weather"
@@ -207,10 +207,19 @@
                 app:layout_constraintLeft_toRightOf="@id/bt_Lowercase"
                 app:layout_constraintTop_toTopOf="@id/bt_Lowercase" />
 
+            <Button
+                android:id="@+id/bt_Baidu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="百度语音合成"
+                android:textAllCaps="false"
+                app:layout_constraintLeft_toRightOf="@id/bt_Animation"
+                app:layout_constraintTop_toTopOf="@id/bt_Lowercase" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
