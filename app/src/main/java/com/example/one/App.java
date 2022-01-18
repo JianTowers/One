@@ -2,6 +2,7 @@ package com.example.one;
 
 import android.app.Application;
 
+import com.example.one.baidu.SyntheticInstance;
 import com.example.one.utils.ParseTools;
 import com.qweather.sdk.view.HeConfig;
 
@@ -32,5 +33,6 @@ public class App extends Application {
         String key = weather.getProperty("key");
         HeConfig.init(publicId,key);
         HeConfig.switchToDevService();
+        SyntheticInstance.getInstance().initialTts(this);
     }
 }

@@ -27,7 +27,7 @@ public class WebAct extends AppCompatActivity {
 
         WebView webView = findViewById(R.id.web);
         webView.setWebViewClient(new WebViewClient());
-        String url = "https://widget-page.qweather.net/h5/index.html?md=0123456&bg=1&lc=accu&key=21cfccd5c1d04afcb29ee6241ed69088&v=_1642139291620";
+        String url = "https://widget-page.qweather.net/h5/index.html?md=0123456&bg=1&lc=accu&key=8b09e77631cd471e9135792ef74b59aa&v=_1642139291620";
         webView.loadUrl(url);
 
         //解决加载空白屏
