@@ -17,6 +17,7 @@ import com.blankj.utilcode.util.LogUtils;
 import com.example.one.R;
 import com.example.one.bean.HandShakeBean;
 import com.example.one.bean.MsgDataBean;
+import com.example.one.bean.WebBean;
 import com.xuhao.didi.core.iocore.interfaces.IPulseSendable;
 import com.xuhao.didi.core.iocore.interfaces.ISendable;
 import com.xuhao.didi.core.pojo.OriginalData;
@@ -144,8 +145,8 @@ public class SocketXAct extends AppCompatActivity {
                     if (TextUtils.isEmpty(msg.trim())) {
                         return;
                     }
-                    MsgDataBean msgDataBean = new MsgDataBean(msg);
-                    mManager.send(msgDataBean);
+                    WebBean webBean = new WebBean("scrv","open","#333","#333","时空隧道");
+                    mManager.send(webBean);
                     mSendET.setText("");
                 }
             }
