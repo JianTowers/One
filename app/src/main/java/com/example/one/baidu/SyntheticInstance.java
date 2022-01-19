@@ -7,6 +7,7 @@ import android.text.TextUtils;
 
 import com.baidu.tts.client.SpeechSynthesizer;
 import com.baidu.tts.client.SpeechSynthesizerListener;
+import com.blankj.utilcode.util.LogUtils;
 import com.example.one.baidu.control.InitConfig;
 import com.example.one.baidu.control.MySyntherizer;
 import com.example.one.baidu.listener.UiMessageListener;
@@ -85,8 +86,30 @@ public class SyntheticInstance {
         }
     }
 
+    /**
+     * 暂停播放，仅调用speak后生效
+     */
+    public void pause(){
+        int result = mySyntherizer.pause();
+    }
+
+    /**
+     * 继续播放。仅调用speak后生效，调用pause生效
+     */
+    public void resume() {
+        int result = mySyntherizer.resume();
+    }
+
+    /*
+     * 停止合成引擎。即停止播放，合成，清空内部合成队列。
+     */
+    public void stop() {
+        int result = mySyntherizer.stop();
+    }
+
     private void checkResult(int result, String method) {
         if (result != 0) {
+            LogUtils.d(method);
         }
     }
 

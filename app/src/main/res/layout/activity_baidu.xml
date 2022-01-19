@@ -13,7 +13,31 @@
         android:text="合成"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
-    
+
+    <Button
+        android:id="@+id/bt_baidu_pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="暂停"
+        app:layout_constraintTop_toTopOf="@id/bt_baidu_start"
+        app:layout_constraintLeft_toRightOf="@id/bt_baidu_start"/>
+
+    <Button
+        android:id="@+id/bt_baidu_resume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="继续"
+        app:layout_constraintTop_toTopOf="@id/bt_baidu_start"
+        app:layout_constraintLeft_toRightOf="@id/bt_baidu_pause"/>
+
+    <Button
+        android:id="@+id/bt_baidu_stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="停止"
+        app:layout_constraintTop_toTopOf="@id/bt_baidu_start"
+        app:layout_constraintLeft_toRightOf="@id/bt_baidu_resume"/>
+
     <EditText
         android:id="@+id/et_baidu"
         android:layout_width="match_parent"
