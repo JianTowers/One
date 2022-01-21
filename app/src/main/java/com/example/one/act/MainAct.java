@@ -113,7 +113,7 @@ public class MainAct extends AppCompatActivity {
         });
 
         btThread2.setOnClickListener(v -> {
-            ThreadApi.getInstance().doPrintLog();
+            startActivity(new Intent(MainAct.this,MyTimerAct.class));
         });
 
         btString.setOnClickListener(v -> {
