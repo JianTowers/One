@@ -2,10 +2,13 @@ package com.example.one.act.first;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
+import android.os.SystemClock;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -45,57 +48,9 @@ public class SocketXAct extends AppCompatActivity {
     private EditText mSendET;
     private TextView tvSend,tvRice;
 
-    private SocketActionAdapter adapter = new SocketActionAdapter() {
-        @Override
-        public void onSocketConnectionSuccess(ConnectionInfo info, String action) {
-            mManager.send(new HandShakeBean());
-            LogUtils.d("DisConnect");
-//            mConnect.setText("DisConnect");
-        }
+    private Button btTest;
 
-        @Override
-        public void onSocketDisconnection(ConnectionInfo info, String action, Exception e) {
-            if (e != null) {
-//                tvSend.setText("异常断开："+e.getMessage());
-                LogUtils.d("异常断开");
-            } else {
-//                tvSend.setText("正常断开");
-                LogUtils.d("正常断开");
-            }
-//            mConnect.setText("Connect");
-            LogUtils.d("Connect");
-
-        }
-
-        @Override
-        public void onSocketConnectionFailed(ConnectionInfo info, String action, Exception e) {
-//            tvSend.setText("连接失败");
-//            mConnect.setText("Connect");
-            LogUtils.d("连接失败");
-        }
-
-        @Override
-        public void onSocketReadResponse(ConnectionInfo info, String action, OriginalData data) {
-            String str = new String(data.getBodyBytes(), Charset.forName("utf-8"));
-//            tvRice.setText(str);
-            LogUtils.d(str);
-
-        }
-
-        @Override
-        public void onSocketWriteResponse(ConnectionInfo info, String action, ISendable data) {
-            String str = new String(data.parse(), Charset.forName("utf-8"));
-//            tvSend.setText(str);
-            LogUtils.d(str);
-        }
-
-        @Override
-        public void onPulseSend(ConnectionInfo info, IPulseSendable data) {
-            String str = new String(data.parse(), Charset.forName("utf-8"));
-//            tvSend.setText(str);
-            LogUtils.d(str);
-        }
-    };
+    private Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,7 +66,20 @@ public class SocketXAct extends AppCompatActivity {
         mSendET = (EditText) findViewById(R.id.et_sendX);
         tvSend = (TextView) findViewById(R.id.tv_sendX);
         tvRice = (TextView) findViewById(R.id.tv_receX);
+        btTest = (Button) findViewById(R.id.bt_socket_test);
         initMan();
+        handler = new Handler(){
+            @Override
+            public void handleMessage(@NonNull Message msg) {
+                if (msg.what == 0){
+                    SystemClock.sleep(200);
+                    initMan();
+                    MsgDataBean msgDataBean = new MsgDataBean(msg.arg1+"");
+                    mManager.send(msgDataBean);
+                    LogUtils.d(msg.arg1);
+                }
+            }
+        };
     }
 
     private void runFlow(){
@@ -151,23 +119,20 @@ public class SocketXAct extends AppCompatActivity {
                 }
             }
         });
+
+        btTest.setOnClickListener(v -> {
+            for (int i = 0;i<20;i++){
+                Message message = new Message();
+                message.what =0;
+                message.arg1 =i;
+                handler.sendMessage(message);
+            }
+        });
     }
 
     private void initMan(){
         //不涉及view就不用开启handler
-        final Handler handler = new Handler();
         mInfo = new ConnectionInfo("10.1.37.215",8080);
-//        mOkOptions = new OkSocketOptions.Builder()
-//                .setReconnectionManager(new NoneReconnect())
-//                .setConnectTimeoutSecond(10)
-//                .setCallbackThreadModeToken(new OkSocketOptions.ThreadModeToken() {
-//                    @Override
-//                    public void handleCallbackEvent(ActionDispatcher.ActionRunnable runnable) {
-//                        handler.post(runnable);
-//                    }
-//                })
-//                .build();
         mManager = OkSocket.open(mInfo);
-        mManager.registerReceiver(adapter);
     }
 }

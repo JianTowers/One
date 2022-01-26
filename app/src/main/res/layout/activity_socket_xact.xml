@@ -66,6 +66,14 @@
                 android:textAllCaps="false"
                 app:layout_constraintTop_toBottomOf="@id/et_sendX" />
 
+            <Button
+                android:id="@+id/bt_socket_test"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Test"
+                android:textAllCaps="false"
+                app:layout_constraintTop_toBottomOf="@id/bt_sendX" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
