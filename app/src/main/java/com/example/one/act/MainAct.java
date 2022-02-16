@@ -27,6 +27,7 @@ import com.example.one.act.first.SocketAct;
 import com.example.one.act.first.ThreadAct;
 import com.example.one.act.second.BaiduAct;
 import com.example.one.act.second.FrameAnimationAct;
+import com.example.one.act.second.MqActivity;
 import com.example.one.act.second.SplashAct;
 import com.example.one.act.second.WeatherAct;
 import com.example.one.act.second.WebAct;
@@ -48,7 +49,7 @@ public class MainAct extends AppCompatActivity {
      * 第二行
      */
     private Button btWhiteList, btWeather, btWebView, btSplash;
-    private Button btLowercase, btAnimation, btBaidu;
+    private Button btLowercase, btAnimation, btBaidu,btMq;
 
     /**
      * 闹钟管理器
@@ -91,6 +92,7 @@ public class MainAct extends AppCompatActivity {
         btLowercase = (Button) findViewById(R.id.bt_Lowercase);
         btAnimation = (Button) findViewById(R.id.bt_Animation);
         btBaidu = (Button) findViewById(R.id.bt_Baidu);
+        btMq = (Button) findViewById(R.id.bt_mq);
     }
 
     private void onRunFirst() {
@@ -205,6 +207,8 @@ public class MainAct extends AppCompatActivity {
         btBaidu.setOnClickListener(v -> {
             startActivity(new Intent(MainAct.this, BaiduAct.class));
         });
+
+        btMq.setOnClickListener(v -> startActivity(new Intent(MainAct.this, MqActivity.class)));
     }
 
     /**

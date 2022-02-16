@@ -63,4 +63,12 @@ dependencies {
 
     //启动页
     implementation 'me.wangyuwei:ParticleView:1.0.4'
+
+    //弹窗XPopUp
+    implementation 'com.github.li-xiaojun:XPopup:2.4.1'
+
+    // androidx版本
+    implementation 'com.github.xuexiangjys:XUpdate:2.1.1'
+    implementation 'com.github.xuexiangjys.XUpdateAPI:xupdate-easy:1.0.1'
+    implementation 'com.github.xuexiangjys.XUtil:xutil-core:2.0.0'
 }

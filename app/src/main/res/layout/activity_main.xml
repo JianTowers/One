@@ -217,6 +217,15 @@
                 app:layout_constraintLeft_toRightOf="@id/bt_Animation"
                 app:layout_constraintTop_toTopOf="@id/bt_Lowercase" />
 
+            <Button
+                android:id="@+id/bt_mq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="下载"
+                android:textAllCaps="false"
+                app:layout_constraintLeft_toRightOf="@id/bt_Baidu"
+                app:layout_constraintTop_toTopOf="@id/bt_Lowercase" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
