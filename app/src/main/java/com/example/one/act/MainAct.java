@@ -50,6 +50,7 @@ public class MainAct extends AppCompatActivity {
      */
     private Button btWhiteList, btWeather, btWebView, btSplash;
     private Button btLowercase, btAnimation, btBaidu,btMq;
+    private Button btEquipment;
 
     /**
      * 闹钟管理器
@@ -93,6 +94,7 @@ public class MainAct extends AppCompatActivity {
         btAnimation = (Button) findViewById(R.id.bt_Animation);
         btBaidu = (Button) findViewById(R.id.bt_Baidu);
         btMq = (Button) findViewById(R.id.bt_mq);
+        btEquipment = (Button) findViewById(R.id.bt_Equipment);
     }
 
     private void onRunFirst() {
