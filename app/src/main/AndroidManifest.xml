@@ -103,6 +103,7 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="jy1gUK5S701NWQbO3YK0MFeQtiSvelSg"></meta-data>
 
+        <!-- 该服务会占用后台麦克风 -->
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"

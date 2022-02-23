@@ -56,7 +56,7 @@ public class ThreadAct extends AppCompatActivity {
     }
 
     private void setAction() {
-        mHandler = new Handler() {
+        mHandler = new Handler(Looper.getMainLooper()){
             @Override
             public void handleMessage(@NonNull Message msg) {
                 if (msg.what == 1) {
@@ -71,6 +71,22 @@ public class ThreadAct extends AppCompatActivity {
                 }
             }
         };
+
+//        mHandler = new Handler() {
+//            @Override
+//            public void handleMessage(@NonNull Message msg) {
+//                if (msg.what == 1) {
+//                    String text2 = Integer.toString(i);
+//                    tvThread2.setText(text2);
+//                    i++;
+//                }
+//                if (msg.what == 2) {
+//                    String text3 = Integer.toString(i);
+//                    tvThread3.setText(text3);
+//                    i--;
+//                }
+//            }
+//        };
 
         /**
         *定时线程的两种方法
