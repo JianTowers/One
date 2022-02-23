@@ -6,7 +6,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.baidu.location.BDLocation;
 import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.Utils;
+import com.example.one.App;
 import com.example.one.R;
 import com.qweather.sdk.bean.geo.GeoBean;
 import com.qweather.sdk.bean.weather.WeatherDailyBean;
@@ -17,6 +20,8 @@ public class WeatherAct extends AppCompatActivity {
     private Button btTest;
     private String id;
     private TextView tvWind,tvTemp;
+
+    BDLocation bdLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,9 @@ public class WeatherAct extends AppCompatActivity {
         btTest = findViewById(R.id.bt_Test);
         tvTemp = (TextView) findViewById(R.id.tvTemp);
         tvWind = (TextView) findViewById(R.id.tvWind);
+
+        App app = (App) Utils.getApp();
+        bdLocation = app.getBdLocation();
     }
 
     private void runFlow() {
@@ -44,7 +52,7 @@ public class WeatherAct extends AppCompatActivity {
      * 获得城市Id
      */
     private void getCityId() {
-        QWeather.getGeoCityLookup(this, "拱墅区", new QWeather.OnResultGeoListener() {
+        QWeather.getGeoCityLookup(this, bdLocation.getDistrict(), new QWeather.OnResultGeoListener() {
             @Override
             public void onError(Throwable throwable) {
             }

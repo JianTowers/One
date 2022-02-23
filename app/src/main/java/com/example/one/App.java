@@ -4,7 +4,10 @@ package com.example.one;
 import android.app.Application;
 import android.content.Context;
 
+import com.baidu.location.BDLocation;
+import com.baidu.location.LocationClient;
 import com.example.one.baidu.SyntheticInstance;
+import com.example.one.speail.MyLocationUtils;
 import com.example.one.utils.ParseTools;
 import com.example.one.view.CustomUpdateConfigProvider;
 import com.qweather.sdk.view.HeConfig;
@@ -34,6 +37,16 @@ public class App extends Application {
         CityId = cityId;
     }
 
+    private BDLocation bdLocation;
+
+    public BDLocation getBdLocation() {
+        return bdLocation;
+    }
+
+    public void setBdLocation(BDLocation bdLocation) {
+        this.bdLocation = bdLocation;
+    }
+
     @Override
     protected void attachBaseContext(Context base) {
 //        EasyUpdate.setUpdateConfigProvider(new DefaultUpdateConfigProvider());
@@ -49,7 +62,6 @@ public class App extends Application {
         HeConfig.init(publicId,key);
         HeConfig.switchToDevService();
         SyntheticInstance.getInstance().initialTts(this);
-
         EasyUpdate.setUpdateConfigProvider(new DefaultUpdateConfigProvider());
     }
 }

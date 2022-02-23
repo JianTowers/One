@@ -26,6 +26,7 @@ import com.example.one.act.first.RollingTextAct;
 import com.example.one.act.first.SocketAct;
 import com.example.one.act.first.ThreadAct;
 import com.example.one.act.second.BaiduAct;
+import com.example.one.act.second.BaiduMapAct;
 import com.example.one.act.second.FrameAnimationAct;
 import com.example.one.act.second.MqActivity;
 import com.example.one.act.second.SplashAct;
@@ -151,11 +152,11 @@ public class MainAct extends AppCompatActivity {
         btPermission.setOnClickListener(v -> {
             PermissionX.init(this).
                     permissions(Manifest.permission.READ_CONTACTS, Manifest.permission.CAMERA, Manifest.permission.CALL_PHONE,
-                            Manifest.permission.INTERNET,
                             Manifest.permission.ACCESS_NETWORK_STATE,
                             Manifest.permission.MODIFY_AUDIO_SETTINGS,
                             Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                            Manifest.permission.ACCESS_WIFI_STATE,
+                            Manifest.permission.ACCESS_COARSE_LOCATION,
+                            Manifest.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
                             Manifest.permission.CHANGE_WIFI_STATE)
                     .onExplainRequestReason((scope, deniedList) -> {
                         scope.showRequestReasonDialog(deniedList, "UmsCamEpp需要您同意以下授权才能正常使用", "同意", "拒绝");
@@ -211,6 +212,8 @@ public class MainAct extends AppCompatActivity {
         });
 
         btMq.setOnClickListener(v -> startActivity(new Intent(MainAct.this, MqActivity.class)));
+
+        btEquipment.setOnClickListener(v -> startActivity(new Intent(MainAct.this, BaiduMapAct.class)));
     }
 
     /**
