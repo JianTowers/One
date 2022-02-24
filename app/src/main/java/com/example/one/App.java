@@ -27,6 +27,8 @@ import java.util.Properties;
  */
 public class App extends Application {
 
+    private static App app;
+
     private String CityId;
 
     public String getCityIdCustomUpdateConfigProvider() {
@@ -56,6 +58,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        app = this;
         Properties weather = ParseTools.getInstance().getProperties(getApplicationContext(),"weather.properties");
         String publicId = weather.getProperty("publicId");
         String key = weather.getProperty("key");
@@ -63,5 +66,9 @@ public class App extends Application {
         HeConfig.switchToDevService();
         SyntheticInstance.getInstance().initialTts(this);
         EasyUpdate.setUpdateConfigProvider(new DefaultUpdateConfigProvider());
+    }
+
+    public static Context getContext(){
+        return app;
     }
 }

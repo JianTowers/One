@@ -17,6 +17,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 访问网络，网络定位需要上网 -->
     <uses-permission android:name="android.permission.INTERNET" />
 
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -98,7 +99,8 @@
 
         <receiver
             android:name=".server.AlarmReceiver"
-            android:process=":remote" /> <!-- 百度地图 -->
+            android:process=":remote" />
+        <!-- 百度地图 -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="jy1gUK5S701NWQbO3YK0MFeQtiSvelSg"></meta-data>

@@ -15,6 +15,25 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
+    <Button
+        android:id="@+id/btStorage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="存储信息"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="@id/bt_BaiduMapStart"
+        app:layout_constraintTop_toBottomOf="@id/bt_BaiduMapStart"/>
+
+    <Button
+        android:id="@+id/btClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="关机"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="@id/btStorage"
+        app:layout_constraintTop_toBottomOf="@id/btStorage"/>
+
+
     <TextView
         android:id="@+id/tv_BaiduMap"
         android:layout_width="wrap_content"
@@ -26,5 +45,16 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvStorage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="结果"
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_BaiduMap"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
