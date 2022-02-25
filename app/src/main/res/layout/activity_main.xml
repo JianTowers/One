@@ -236,6 +236,17 @@
                 app:layout_constraintLeft_toLeftOf="@id/bt_alarm"
                 app:layout_constraintTop_toBottomOf="@id/bt_Lowercase" />
 
+            <Button
+                android:id="@+id/btAdapter"
+                android:layout_width="@dimen/xupdate_common_padding"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="适配"
+                android:textAllCaps="false"
+                app:layout_constraintLeft_toRightOf="@id/bt_Equipment"
+                app:layout_constraintTop_toTopOf="@id/bt_Equipment" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
