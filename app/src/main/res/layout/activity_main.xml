@@ -237,11 +237,11 @@
                 app:layout_constraintTop_toBottomOf="@id/bt_Lowercase" />
 
             <Button
-                android:id="@+id/btAdapter"
-                android:layout_width="@dimen/xupdate_common_padding"
+                android:id="@+id/btInstrumentation"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="适配"
+                android:text="模拟点击"
                 android:textAllCaps="false"
                 app:layout_constraintLeft_toRightOf="@id/bt_Equipment"
                 app:layout_constraintTop_toTopOf="@id/bt_Equipment" />

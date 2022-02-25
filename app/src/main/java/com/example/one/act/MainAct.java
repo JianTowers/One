@@ -28,6 +28,7 @@ import com.example.one.act.first.ThreadAct;
 import com.example.one.act.second.BaiduAct;
 import com.example.one.act.second.BaiduMapAct;
 import com.example.one.act.second.FrameAnimationAct;
+import com.example.one.act.second.InstrumentationAct;
 import com.example.one.act.second.MqActivity;
 import com.example.one.act.second.SplashAct;
 import com.example.one.act.second.WeatherAct;
@@ -51,7 +52,7 @@ public class MainAct extends AppCompatActivity {
      */
     private Button btWhiteList, btWeather, btWebView, btSplash;
     private Button btLowercase, btAnimation, btBaidu,btMq;
-    private Button btEquipment,btAdapter;
+    private Button btEquipment,btInstrumentation;
 
     /**
      * 闹钟管理器
@@ -96,7 +97,7 @@ public class MainAct extends AppCompatActivity {
         btBaidu = (Button) findViewById(R.id.bt_Baidu);
         btMq = (Button) findViewById(R.id.bt_mq);
         btEquipment = (Button) findViewById(R.id.bt_Equipment);
-        btAdapter = (Button) findViewById(R.id.btAdapter);
+        btInstrumentation = (Button) findViewById(R.id.btInstrumentation);
     }
 
     private void onRunFirst() {
@@ -215,6 +216,8 @@ public class MainAct extends AppCompatActivity {
         btMq.setOnClickListener(v -> startActivity(new Intent(MainAct.this, MqActivity.class)));
 
         btEquipment.setOnClickListener(v -> startActivity(new Intent(MainAct.this, BaiduMapAct.class)));
+
+        btInstrumentation.setOnClickListener(v -> startActivity(new Intent(MainAct.this, InstrumentationAct.class)));
     }
 
     /**
