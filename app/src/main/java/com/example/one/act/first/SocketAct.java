@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.example.one.R;
 import com.example.one.bean.MsgDataBean;
 import com.google.gson.JsonObject;
@@ -38,7 +39,7 @@ import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Enumeration;
 
-public class SocketAct extends AppCompatActivity implements IClientIOCallback {
+public class SocketAct extends AppCompatActivity implements IClientIOCallback{
     private Button btStart;
     private Button btSample,btSampleX;
     private TextView textView;
@@ -70,18 +71,21 @@ public class SocketAct extends AppCompatActivity implements IClientIOCallback {
             @Override
             public void onServerListening(int serverPort) {
                 Log.i("ServerCallback", Thread.currentThread().getName() + " onServerListening,serverPort:" + serverPort);
+                LogUtils.i("ServerAction", "Socket开启端口" + serverPort);
                 flushServerText();
             }
 
             @Override
             public void onClientConnected(IClient client, int serverPort, IClientPool clientPool) {
                 Log.i("ServerCallback", Thread.currentThread().getName() + " onClientConnected,serverPort:" + serverPort + "--ClientNums:" + clientPool.size() + "--ClientTag:" + client.getUniqueTag());
+                LogUtils.i("ServerAction", "Socket客户端连接 " + client.getHostIp());
                 client.addIOCallback(SocketAct.this);
             }
 
             @Override
             public void onClientDisconnected(IClient client, int serverPort, IClientPool clientPool) {
                 Log.i("ServerCallback", Thread.currentThread().getName() + " onClientDisconnected,serverPort:" + serverPort + "--ClientNums:" + clientPool.size() + "--ClientTag:" + client.getUniqueTag());
+                LogUtils.i("ServerAction", "Socket断开连接");
                 client.removeIOCallback(SocketAct.this);
             }
 
@@ -89,6 +93,7 @@ public class SocketAct extends AppCompatActivity implements IClientIOCallback {
             public void onServerWillBeShutdown(int serverPort, IServerShutdown shutdown, IClientPool clientPool, Throwable throwable) {
                 Log.i("ServerCallback", Thread.currentThread().getName() + " onServerWillBeShutdown,serverPort:" + serverPort + "--ClientNums:" + clientPool
                         .size());
+                LogUtils.i("ServerAction", "Socket主动断开连接");
                 shutdown.shutdown();
             }
 
@@ -96,6 +101,7 @@ public class SocketAct extends AppCompatActivity implements IClientIOCallback {
             public void onServerAlreadyShutdown(int serverPort) {
                 Log.i("ServerCallback", Thread.currentThread().getName() + " onServerAlreadyShutdown,serverPort:" + serverPort);
                 flushServerText();
+                LogUtils.i("ServerAction", "Socket断开连接2");
             }
         });
     }

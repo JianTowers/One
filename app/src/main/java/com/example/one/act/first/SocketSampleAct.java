@@ -15,8 +15,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.example.one.R;
 import com.example.one.adapter.LogAdapter;
+import com.example.one.bean.DevicesBean;
 import com.example.one.bean.HandShakeBean;
 import com.example.one.bean.LogBean;
 import com.example.one.bean.MsgDataBean;
@@ -172,8 +174,12 @@ public class SocketSampleAct extends AppCompatActivity {
                     if (TextUtils.isEmpty(msg.trim())) {
                         return;
                     }
-                    MsgDataBean msgDataBean = new MsgDataBean(msg);
-                    mManager.send(msgDataBean);
+//                    MsgDataBean msgDataBean = new MsgDataBean(msg);
+//                    mManager.send(msgDataBean);
+//                    mSendET.setText("");
+                    DevicesBean devicesBean = new DevicesBean("OCR","open");
+                    LogUtils.json(devicesBean);
+                    mManager.send(devicesBean);
                     mSendET.setText("");
                 }
             }

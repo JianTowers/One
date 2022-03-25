@@ -116,7 +116,7 @@ public class InstrumentationAct extends AppCompatActivity {
         btSimulation = (Button) findViewById(R.id.btSimulation);
         btSimulationOk = (Button) findViewById(R.id.btSimulationOK);
 
-//        initService();
+        initService();
 
 
         btSimulation.setOnClickListener(v -> {

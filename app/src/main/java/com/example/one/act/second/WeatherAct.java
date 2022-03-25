@@ -52,7 +52,7 @@ public class WeatherAct extends AppCompatActivity {
      * 获得城市Id
      */
     private void getCityId() {
-        QWeather.getGeoCityLookup(this, bdLocation.getDistrict(), new QWeather.OnResultGeoListener() {
+        QWeather.getGeoCityLookup(this, "拱墅", new QWeather.OnResultGeoListener() {
             @Override
             public void onError(Throwable throwable) {
             }

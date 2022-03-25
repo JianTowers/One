@@ -247,6 +247,27 @@
                 app:layout_constraintTop_toTopOf="@id/bt_Equipment" />
 
 
+            <Button
+                android:id="@+id/btFoundService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="前台服务"
+                android:textAllCaps="false"
+                app:layout_constraintLeft_toRightOf="@id/btInstrumentation"
+                app:layout_constraintTop_toTopOf="@id/btInstrumentation" />
+
+            <Button
+                android:id="@+id/btBluetooth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="蓝牙"
+                android:textAllCaps="false"
+                app:layout_constraintLeft_toRightOf="@id/btFoundService"
+                app:layout_constraintTop_toTopOf="@id/btFoundService" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

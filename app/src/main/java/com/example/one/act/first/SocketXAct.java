@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.example.one.R;
+import com.example.one.bean.DevicesBean;
 import com.example.one.bean.HandShakeBean;
 import com.example.one.bean.MsgDataBean;
 import com.example.one.bean.WebBean;
@@ -113,8 +114,10 @@ public class SocketXAct extends AppCompatActivity {
                     if (TextUtils.isEmpty(msg.trim())) {
                         return;
                     }
-                    WebBean webBean = new WebBean("scrv","open","#333","#333","时空隧道");
-                    mManager.send(webBean);
+//                    WebBean webBean = new WebBean("scrv","open","#333","#333","时空隧道");
+//                    mManager.send(webBean);
+                    DevicesBean devicesBean = new DevicesBean("用户画像","close");
+                    mManager.send(devicesBean);
                     mSendET.setText("");
                 }
             }
@@ -132,7 +135,7 @@ public class SocketXAct extends AppCompatActivity {
 
     private void initMan(){
         //不涉及view就不用开启handler
-        mInfo = new ConnectionInfo("10.1.37.215",8080);
+        mInfo = new ConnectionInfo("10.0.2.15",8080);
         mManager = OkSocket.open(mInfo);
     }
 }

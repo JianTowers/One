@@ -6,6 +6,7 @@ import android.content.Context;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.LocationClient;
+import com.blankj.utilcode.util.LogUtils;
 import com.example.one.baidu.SyntheticInstance;
 import com.example.one.speail.MyLocationUtils;
 import com.example.one.utils.ParseTools;
@@ -65,7 +66,19 @@ public class App extends Application {
         HeConfig.init(publicId,key);
         HeConfig.switchToDevService();
         SyntheticInstance.getInstance().initialTts(this);
+        initLog();
         EasyUpdate.setUpdateConfigProvider(new DefaultUpdateConfigProvider());
+    }
+
+    /**
+     * 日志初始配置
+     */
+    protected  void initLog(){
+        //日志工具类初始化
+        LogUtils.Config config = LogUtils.getConfig();
+        config.setDir("/sdcard/One/Log");
+        config.setLog2FileSwitch(true);
+        config.setBorderSwitch(true);
     }
 
     public static Context getContext(){

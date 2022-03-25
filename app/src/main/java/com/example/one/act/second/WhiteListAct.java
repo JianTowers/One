@@ -11,6 +11,7 @@ import android.provider.Settings;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.example.one.R;
 
 public class WhiteListAct extends AppCompatActivity {
@@ -33,7 +34,7 @@ public class WhiteListAct extends AppCompatActivity {
             isIgnoring = powerManager.isIgnoringBatteryOptimizations(getPackageName());
         }
         return isIgnoring;
-    };
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void requestIgnoreBatteryOptimizations() {
@@ -44,5 +45,5 @@ public class WhiteListAct extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    };
+    }
 }

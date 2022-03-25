@@ -27,14 +27,17 @@ import com.example.one.act.first.SocketAct;
 import com.example.one.act.first.ThreadAct;
 import com.example.one.act.second.BaiduAct;
 import com.example.one.act.second.BaiduMapAct;
+import com.example.one.act.second.BluetoothAct;
 import com.example.one.act.second.FrameAnimationAct;
 import com.example.one.act.second.InstrumentationAct;
 import com.example.one.act.second.MqActivity;
+import com.example.one.act.second.NoticeAct;
 import com.example.one.act.second.SplashAct;
 import com.example.one.act.second.WeatherAct;
 import com.example.one.act.second.WebAct;
 import com.example.one.act.second.WhiteListAct;
 import com.example.one.server.AlarmReceiver;
+import com.example.one.server.NoticeService;
 import com.example.one.speail.ThreadApi;
 import com.permissionx.guolindev.PermissionX;
 
@@ -52,7 +55,7 @@ public class MainAct extends AppCompatActivity {
      */
     private Button btWhiteList, btWeather, btWebView, btSplash;
     private Button btLowercase, btAnimation, btBaidu,btMq;
-    private Button btEquipment,btInstrumentation;
+    private Button btEquipment,btInstrumentation,btFoundService,btBluetooth;
 
     /**
      * 闹钟管理器
@@ -98,6 +101,8 @@ public class MainAct extends AppCompatActivity {
         btMq = (Button) findViewById(R.id.bt_mq);
         btEquipment = (Button) findViewById(R.id.bt_Equipment);
         btInstrumentation = (Button) findViewById(R.id.btInstrumentation);
+        btFoundService = (Button) findViewById(R.id.btFoundService);
+        btBluetooth = (Button) findViewById(R.id.btBluetooth);
     }
 
     private void onRunFirst() {
@@ -153,12 +158,13 @@ public class MainAct extends AppCompatActivity {
         //动态权限获取
         btPermission.setOnClickListener(v -> {
             PermissionX.init(this).
-                    permissions(Manifest.permission.READ_CONTACTS, Manifest.permission.CAMERA, Manifest.permission.CALL_PHONE,
+                    permissions(
                             Manifest.permission.ACCESS_NETWORK_STATE,
                             Manifest.permission.MODIFY_AUDIO_SETTINGS,
                             Manifest.permission.WRITE_EXTERNAL_STORAGE,
                             Manifest.permission.ACCESS_COARSE_LOCATION,
                             Manifest.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
+                            Manifest.permission.ACCESS_FINE_LOCATION,
                             Manifest.permission.CHANGE_WIFI_STATE)
                     .onExplainRequestReason((scope, deniedList) -> {
                         scope.showRequestReasonDialog(deniedList, "UmsCamEpp需要您同意以下授权才能正常使用", "同意", "拒绝");
@@ -201,8 +207,12 @@ public class MainAct extends AppCompatActivity {
         });
 
         btLowercase.setOnClickListener(v -> {
-            String string = "我是中国adkkk";
-            LogUtils.d(string.toUpperCase(Locale.ROOT));
+            String string = "{公司介绍,开灯}{公司介绍,开灯}";
+            string = string.replace("{","").replace("}","");
+            String[] newString = string.split("%");
+            for (int i=0;i< newString.length;i++){
+                LogUtils.d(newString[i]);
+            }
         });
 
         btAnimation.setOnClickListener(v -> {
@@ -218,6 +228,10 @@ public class MainAct extends AppCompatActivity {
         btEquipment.setOnClickListener(v -> startActivity(new Intent(MainAct.this, BaiduMapAct.class)));
 
         btInstrumentation.setOnClickListener(v -> startActivity(new Intent(MainAct.this, InstrumentationAct.class)));
+
+        btFoundService.setOnClickListener(v -> startActivity(new Intent(MainAct.this, NoticeAct.class)));
+
+        btBluetooth.setOnClickListener(v -> startActivity(new Intent(MainAct.this, BluetoothAct.class)));
     }
 
     /**

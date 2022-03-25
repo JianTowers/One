@@ -22,6 +22,7 @@ public class MyLocationUtils extends BDAbstractLocationListener {
             app.setBdLocation(location);
         }
         LogUtils.d("返回码" + location.getLocType());
+        LogUtils.d(location.getLocTypeDescription());
         LogUtils.d("定位结果" + city + district);
     }
 
