@@ -7,6 +7,9 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -56,6 +59,7 @@ public class MainAct extends AppCompatActivity {
     private Button btWhiteList, btWeather, btWebView, btSplash;
     private Button btLowercase, btAnimation, btBaidu,btMq;
     private Button btEquipment,btInstrumentation,btFoundService,btBluetooth;
+    private Button btNavigation;
 
     /**
      * 闹钟管理器
@@ -103,6 +107,7 @@ public class MainAct extends AppCompatActivity {
         btInstrumentation = (Button) findViewById(R.id.btInstrumentation);
         btFoundService = (Button) findViewById(R.id.btFoundService);
         btBluetooth = (Button) findViewById(R.id.btBluetooth);
+        btNavigation = (Button) findViewById(R.id.bt_Navigation);
     }
 
     private void onRunFirst() {
@@ -207,11 +212,15 @@ public class MainAct extends AppCompatActivity {
         });
 
         btLowercase.setOnClickListener(v -> {
-            String string = "{公司介绍,开灯}{公司介绍,开灯}";
-            string = string.replace("{","").replace("}","");
-            String[] newString = string.split("%");
-            for (int i=0;i< newString.length;i++){
-                LogUtils.d(newString[i]);
+            PackageManager pm = getPackageManager();
+            try {
+                PackageInfo info = pm.getPackageInfo("com.kangxu.assistant",0);
+                LogUtils.d("包名"+info.packageName);
+                LogUtils.d("版本名"+info.versionName);
+                LogUtils.d("版本号"+info.versionCode);
+            }catch (PackageManager.NameNotFoundException e){
+                e.printStackTrace();
+                LogUtils.d(e.toString());
             }
         });
 
@@ -232,6 +241,21 @@ public class MainAct extends AppCompatActivity {
         btFoundService.setOnClickListener(v -> startActivity(new Intent(MainAct.this, NoticeAct.class)));
 
         btBluetooth.setOnClickListener(v -> startActivity(new Intent(MainAct.this, BluetoothAct.class)));
+
+        btNavigation.setOnClickListener(v -> {
+//隐藏虚拟按键，并且全屏
+            if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
+                View view = this.getWindow().getDecorView();
+                view.setSystemUiVisibility(View.GONE);
+            } else if (Build.VERSION.SDK_INT >= 19) {
+                //for new api versions.
+                View decorView = getWindow().getDecorView();
+                int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN;
+                decorView.setSystemUiVisibility(uiOptions);
+            }
+        });
+
     }
 
     /**

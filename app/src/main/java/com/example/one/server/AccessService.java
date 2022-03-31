@@ -38,46 +38,6 @@ public class AccessService extends AccessibilityService {
     }
 
 
-    /**
-     * 执行ADB指令，返回结果
-     * 可以跨进程app，需要root
-     *
-     * @param cmd
-     */
-    public static String execShellCmd(String cmd) {
-        String result = "";
-        DataOutputStream dos = null;
-        DataInputStream dis = null;
-        try {
-            Process p = Runtime.getRuntime().exec("su");// 经过Root处理的android系统即有su命令
-            dos = new DataOutputStream(p.getOutputStream());
-            dis = new DataInputStream(p.getInputStream());
-
-            dos.writeBytes(cmd + "\n");
-            dos.flush();
-            dos.writeBytes("exit\n");
-            dos.flush();
-            String line;
-            while ((line = dis.readLine()) != null) {
-                result += line;
-            }
-            p.waitFor();
-        } catch (Exception e) {
-
-        } finally {
-            try {
-                if (dos != null) {
-                    dos.close();
-                }
-                if (dis != null) {
-                    dis.close();
-                }
-            } catch (Exception e) {
-
-            }
-        }
-        return result;
-    }
 
     @Override
     public void onInterrupt() {

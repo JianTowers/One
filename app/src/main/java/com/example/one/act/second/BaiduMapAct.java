@@ -16,6 +16,7 @@ import android.os.storage.StorageVolume;
 import android.util.DisplayMetrics;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
@@ -123,6 +124,7 @@ public class BaiduMapAct extends AppCompatActivity {
         int screenHeighDp = (int) ((screenHeighPx + virtualKeyHeight) / density + 0.5f);
         LogUtils.d("屏幕高:" + screenWidthPx + "px,屏幕高:" + screenHeighPx + "px,虚拟键高:" + virtualKeyHeight + "px");
         LogUtils.d("屏幕宽:" + screenWidthDp + "dp,屏幕高:" + screenHeighDp + "dp,density:" + density);
+        Toast.makeText(mContext,screenHeighPx+"*"+screenWidthPx,Toast.LENGTH_SHORT).show();
     }
 
     public static void queryWithStorageManager(Context context) {

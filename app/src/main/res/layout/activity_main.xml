@@ -267,6 +267,14 @@
                 app:layout_constraintLeft_toRightOf="@id/btFoundService"
                 app:layout_constraintTop_toTopOf="@id/btFoundService" />
 
+            <Button
+                android:id="@+id/bt_Navigation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="导航栏"
+                app:layout_constraintLeft_toLeftOf="@id/bt_alarm"
+                app:layout_constraintTop_toBottomOf="@id/btBluetooth" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
