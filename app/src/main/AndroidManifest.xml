@@ -25,48 +25,39 @@
     <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-
-    <!-- 这个权限用于进行网络定位-->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <!-- 这个权限用于访问GPS定位-->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位-->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口-->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
-    <!-- 用于读取手机当前的状态-->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据-->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <!-- 访问网络，网络定位需要上网-->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- SD卡读取权限，用户写入离线定位数据-->
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-
-
-    <!-- 蓝牙通信 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- SD卡读取权限，用户写入离线定位数据 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" /> <!-- 蓝牙通信 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 
-
     <application
-        android:name=".App"
+        android:name=".speail.SophixApp"
         android:allowBackup="true"
         android:icon="@mipmap/icon_logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/icon_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.One"
+        android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".act.second.HotUpdateAct"
+            android:exported="false" />
+
         <receiver
             android:name=".act.second.BluetoothReceiver"
             android:enabled="true"
-            android:exported="true"></receiver>
+            android:exported="true" />
 
         <activity
             android:name=".act.second.BluetoothAct"
@@ -153,9 +144,7 @@
 
         <receiver
             android:name=".server.AlarmReceiver"
-            android:process=":remote" />
-
-        <!-- 百度地图 -->
+            android:process=":remote" /> <!-- 百度地图 -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="jy1gUK5S701NWQbO3YK0MFeQtiSvelSg" /> <!-- 该服务会占用后台麦克风 -->
@@ -163,7 +152,6 @@
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote" />
-
         <service
             android:name=".server.AccessService"
             android:exported="false"
@@ -177,6 +165,17 @@
                 android:name="android.accessibilityservice"
                 android:resource="@xml/access" />
         </service>
+
+        <!--  热更新-->
+        <meta-data
+            android:name="com.taobao.android.hotfix.IDSECRET"
+            android:value="333675213" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.APPSECRET"
+            android:value="9daf0d8e4b2d467284fb50dff4994acf" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.RSASECRET"
+            android:value="MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC9XhfAWLNN0SZdfCjJu8IQ3ec/twBqETCZxJxcZLkWQy1RSKqA3PfRjnKViR0n7YBwWoK9MMLtoJdNpOGxBWC/EqTuDlJ9nVcFr6JDNuVoVmStR/4+KosJTrV4/L09RgYKD95BkgBfjhgJcRFochaTpCeEVvuALI1YPnndxicynoNNM3FSnfs5oL73+VjmqkxMVSNmX2PXQxUjyq/VOFLxSPkCl1Ki7/huK3vP4o9uTpkA2Y+GKAUaFdaRGmpRiW3COfd3Eq4ykQKUpAu1ywV4fGaduc3dTtfn9Fhhg5xP5HrM8p48rGCVdlgtSSPd06OlBRhcoYZsdDNJ9cpjBek5AgMBAAECggEBAKQ2NwR+JqahatKAe2JMpkI4G3M9/2b7FxkQzMK2OWZbxK2LBQgQFfqruyN/LkBUjR9g7aSf5zlnHC2hgHEgh7/JrCofU1tImJD+uAfvT8pFuLInDwrbm4vrrCSJjpTW5x/MmOBleltifeeaHA1lebx4CiiRwTBp8fwG2Wj+jzktiJWeWE9I7l1CePwMdG0iyjRZmsnOZsgf6L/MU19cT39viz1ym5idS3V2+DWvhT1S48O3++UD6ByJ2IfcIh1D944JYagwDKhm3FWL2qXiqcSf5IiyAbZ0e5KIIRsyv1r+0tvkXrcx+P/43QCu42mh55HtgW9zSaI8KigBJB2G8YECgYEA/KT3n655HSMuqJbrxxDyCakZZdhv9s7HC+LkYzAaUPna+MxdaoLrXfLmR42M7UsD9GBQxG8rfxQOY3XJB6M9EMq9TA4ajeaEvPqXSZUZM/hp/lBboeDbFYbW5RmAYNm37MIaWWrP1WN9Za0chvSnmyFX7ghPlp+u7G9+txXTsSkCgYEAv+H5Rwu692JyniwEwIbVoz4HnN8wJk3my5wO++kmwHCCGguvgyB1vYBRauNEOA48j7R+y32eqAyWhPf9bwRhafQU8aNwp+/i5gIWPC46vum/GC0xlWejS8mASFL5EmrBDbnftlCRXaibFLOXD3Eo0hF2XY5CX30ae9S+M8WnKZECgYA8+W+OCWTPpHMZWztSUwOnUzl+/AqhrWwasUrfqXdgfbzceS4+i5RUm0/6iu4tQwKUUz6K+i2sQOHsHTxEbKBLUjL3jRvZjX4RwgULTEHF6jlimHBVFFirzFxG9K2oMkOSj5IebIn2fUmBZZNR+vAMn7KCD11uA+IKzCnv9AOgaQKBgG7oNiUSaqbCiG1UFAsT5DfOiqfpePMq49OcCC0ivftNDGXxiyjHgkZd/LFDWxLrZ6XINeF4YlPPstB4ZkvcxFFxewmP5nWq+gLoAeIW9m2SvZlDxf0NQh10AmnLS5uRiLReUygVuW/hHIICq7WJOobxAPFiYIrAzKX2eVmDTPOBAoGBALLe38Mb3ROLc1et9MllRjBEiy9SZ/8SuYhrZHNMdGLSB/A1fINmb1XsOwCNPfVorE+egDe6zUH8inDkyWfJyRJB7LkA8z7JTMIn3m3aHgsWYoug4bmyCXMZ0bABaKJ4Y52kiSe9mI4aL+5aSzezF2ip4bH5CsMb5NPEsd8fj2bD" />
     </application>
 
 </manifest>

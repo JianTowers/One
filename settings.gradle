@@ -6,7 +6,11 @@ dependencyResolutionManagement {
         jcenter() // Warning: this repository is going to shut down soon
         maven {
             url "https://jitpack.io"
+            }
+        maven {
+            url 'https://maven.aliyun.com/nexus/content/repositories/releases/'
         }
+
     }
 }
 rootProject.name = "One"

@@ -276,6 +276,17 @@
                 app:layout_constraintLeft_toLeftOf="@id/bt_alarm"
                 app:layout_constraintTop_toBottomOf="@id/btBluetooth" />
 
+            <Button
+                android:id="@+id/btHotAct"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="热更新"
+                android:textAllCaps="false"
+                app:layout_constraintLeft_toRightOf="@id/bt_Navigation"
+                app:layout_constraintTop_toTopOf="@id/bt_Navigation" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

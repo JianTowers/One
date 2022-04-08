@@ -83,4 +83,7 @@ dependencies {
     implementation 'com.baidu.lbsyun:BaiduMapSDK_Location:9.1.8'
 
     implementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+
+    //热更新
+    implementation 'com.aliyun.ams:alicloud-android-hotfix:3.3.5'
 }

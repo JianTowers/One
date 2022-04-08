@@ -12,6 +12,7 @@ import com.example.one.speail.MyLocationUtils;
 import com.example.one.utils.ParseTools;
 import com.example.one.view.CustomUpdateConfigProvider;
 import com.qweather.sdk.view.HeConfig;
+import com.taobao.sophix.SophixManager;
 import com.xuexiang.xupdate.XUpdate;
 import com.xuexiang.xupdate.easy.EasyUpdate;
 import com.xuexiang.xupdate.easy.config.DefaultUpdateConfigProvider;

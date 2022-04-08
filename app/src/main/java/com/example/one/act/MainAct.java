@@ -11,6 +11,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TimePicker;
@@ -32,6 +33,7 @@ import com.example.one.act.second.BaiduAct;
 import com.example.one.act.second.BaiduMapAct;
 import com.example.one.act.second.BluetoothAct;
 import com.example.one.act.second.FrameAnimationAct;
+import com.example.one.act.second.HotUpdateAct;
 import com.example.one.act.second.InstrumentationAct;
 import com.example.one.act.second.MqActivity;
 import com.example.one.act.second.NoticeAct;
@@ -40,12 +42,11 @@ import com.example.one.act.second.WeatherAct;
 import com.example.one.act.second.WebAct;
 import com.example.one.act.second.WhiteListAct;
 import com.example.one.server.AlarmReceiver;
-import com.example.one.server.NoticeService;
 import com.example.one.speail.ThreadApi;
 import com.permissionx.guolindev.PermissionX;
 
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Locale;
 
 public class MainAct extends AppCompatActivity {
     private Button btAlarm, btTherad, btObserver, btThread2, btString, btCode;
@@ -57,9 +58,9 @@ public class MainAct extends AppCompatActivity {
      * 第二行
      */
     private Button btWhiteList, btWeather, btWebView, btSplash;
-    private Button btLowercase, btAnimation, btBaidu,btMq;
-    private Button btEquipment,btInstrumentation,btFoundService,btBluetooth;
-    private Button btNavigation;
+    private Button btLowercase, btAnimation, btBaidu, btMq;
+    private Button btEquipment, btInstrumentation, btFoundService, btBluetooth;
+    private Button btNavigation, btHotAct;
 
     /**
      * 闹钟管理器
@@ -108,6 +109,9 @@ public class MainAct extends AppCompatActivity {
         btFoundService = (Button) findViewById(R.id.btFoundService);
         btBluetooth = (Button) findViewById(R.id.btBluetooth);
         btNavigation = (Button) findViewById(R.id.bt_Navigation);
+        btHotAct = (Button) findViewById(R.id.btHotAct);
+        btHotAct.getLayoutParams().width = 100;
+
     }
 
     private void onRunFirst() {
@@ -130,7 +134,7 @@ public class MainAct extends AppCompatActivity {
         });
 
         btThread2.setOnClickListener(v -> {
-            startActivity(new Intent(MainAct.this,MyTimerAct.class));
+            startActivity(new Intent(MainAct.this, MyTimerAct.class));
         });
 
         btString.setOnClickListener(v -> {
@@ -182,6 +186,7 @@ public class MainAct extends AppCompatActivity {
                             finish();
                         }
                     }));
+
         });
 
         //手机电量
@@ -214,11 +219,11 @@ public class MainAct extends AppCompatActivity {
         btLowercase.setOnClickListener(v -> {
             PackageManager pm = getPackageManager();
             try {
-                PackageInfo info = pm.getPackageInfo("com.kangxu.assistant",0);
-                LogUtils.d("包名"+info.packageName);
-                LogUtils.d("版本名"+info.versionName);
-                LogUtils.d("版本号"+info.versionCode);
-            }catch (PackageManager.NameNotFoundException e){
+                PackageInfo info = pm.getPackageInfo("com.kangxu.assistant", 0);
+                LogUtils.d("包名" + info.packageName);
+                LogUtils.d("版本名" + info.versionName);
+                LogUtils.d("版本号" + info.versionCode);
+            } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
                 LogUtils.d(e.toString());
             }
@@ -243,7 +248,7 @@ public class MainAct extends AppCompatActivity {
         btBluetooth.setOnClickListener(v -> startActivity(new Intent(MainAct.this, BluetoothAct.class)));
 
         btNavigation.setOnClickListener(v -> {
-//隐藏虚拟按键，并且全屏
+            //隐藏虚拟按键，并且全屏
             if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
                 View view = this.getWindow().getDecorView();
                 view.setSystemUiVisibility(View.GONE);
@@ -254,8 +259,11 @@ public class MainAct extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN;
                 decorView.setSystemUiVisibility(uiOptions);
             }
+
+
         });
 
+        btHotAct.setOnClickListener(v -> startActivity(new Intent(MainAct.this, HotUpdateAct.class)));
     }
 
     /**
