@@ -32,6 +32,7 @@ import com.example.one.act.first.ThreadAct;
 import com.example.one.act.second.BaiduAct;
 import com.example.one.act.second.BaiduMapAct;
 import com.example.one.act.second.BluetoothAct;
+import com.example.one.act.second.ExcelActivity;
 import com.example.one.act.second.FrameAnimationAct;
 import com.example.one.act.second.HotUpdateAct;
 import com.example.one.act.second.InstrumentationAct;
@@ -60,7 +61,7 @@ public class MainAct extends AppCompatActivity {
     private Button btWhiteList, btWeather, btWebView, btSplash;
     private Button btLowercase, btAnimation, btBaidu, btMq;
     private Button btEquipment, btInstrumentation, btFoundService, btBluetooth;
-    private Button btNavigation, btHotAct;
+    private Button btNavigation, btHotAct,btExcel;
 
     /**
      * 闹钟管理器
@@ -110,8 +111,7 @@ public class MainAct extends AppCompatActivity {
         btBluetooth = (Button) findViewById(R.id.btBluetooth);
         btNavigation = (Button) findViewById(R.id.bt_Navigation);
         btHotAct = (Button) findViewById(R.id.btHotAct);
-        btHotAct.getLayoutParams().width = 100;
-
+        btExcel = (Button) findViewById(R.id.btExcel);
     }
 
     private void onRunFirst() {
@@ -264,6 +264,8 @@ public class MainAct extends AppCompatActivity {
         });
 
         btHotAct.setOnClickListener(v -> startActivity(new Intent(MainAct.this, HotUpdateAct.class)));
+
+        btExcel.setOnClickListener(v -> startActivity(new Intent(MainAct.this, ExcelActivity.class)));
     }
 
     /**

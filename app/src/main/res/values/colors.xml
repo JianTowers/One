@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="themeColor">#96B97D</color>
+
+    <color name="colorAccent">#D81B60</color>
 </resources>

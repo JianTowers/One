@@ -39,17 +39,19 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-
     <application
         android:name=".speail.SophixApp"
         android:allowBackup="true"
         android:icon="@mipmap/icon_logo"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/icon_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.One"
-        android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".act.second.ExcelActivity"
+            android:exported="false" />
         <activity
             android:name=".act.second.HotUpdateAct"
             android:exported="false" />
@@ -164,9 +166,7 @@
             <meta-data
                 android:name="android.accessibilityservice"
                 android:resource="@xml/access" />
-        </service>
-
-        <!--  热更新-->
+        </service> <!-- 热更新 -->
         <meta-data
             android:name="com.taobao.android.hotfix.IDSECRET"
             android:value="333675213" />
