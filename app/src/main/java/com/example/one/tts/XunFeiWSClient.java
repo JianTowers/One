@@ -36,7 +36,7 @@
 //
 //    private static final String TAG = "MyWebSocketClient";
 //
-//    private CountDownLatch handshakeSuccess;
+////    private CountDownLatch handshakeSuccess;
 //    private CountDownLatch connectClose;
 //
 //    private SpeechRecogListener listener;

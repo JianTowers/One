@@ -14,6 +14,18 @@ android {
 
         multiDexEnabled true  //true 开启多dex，解除65k限制
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            // 设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
+            abiFilters "armeabi-v7a", "arm64-v8a", "armeabi-v7a", "x86", "x86_64"
+        }
+
+        externalNativeBuild {
+            cmake {
+                arguments = ['-DANDROID_STL=c++_static']
+                cppFlags ""
+            }
+        }
     }
 
     buildTypes {
@@ -22,6 +34,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -29,12 +48,6 @@ android {
     compileSdkVersion 31
     buildToolsVersion '31.0.0'
 
-    defaultConfig {
-        ndk {
-            // 设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
-            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86","x86_64"
-        }
-    }
 }
 
 dependencies {
@@ -46,6 +59,8 @@ dependencies {
     implementation files('libs\\com.baidu.tts_2.6.2.2.20200629_44818d4.jar')
     implementation files('libs\\poi-3.12-android-a.jar')
     implementation files('libs\\poi-ooxml-schemas-3.12-20150511-a.jar')
+    implementation files('libs\\commons-codec-1.9.jar')
+    implementation files('libs\\Msc.jar')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -92,4 +107,10 @@ dependencies {
 
     //表格
     implementation 'com.github.huangyanbin:SmartTable:2.2.0'
+
+    //WebSocket
+    implementation 'org.java-websocket:Java-WebSocket:1.5.2'
+    //阿里json工具
+    implementation 'com.alibaba:fastjson:1.2.76'
+    implementation 'com.alibaba:fastjson:1.1.72.android'
 }

@@ -1,5 +1,6 @@
 package com.example.one.act.second;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -27,7 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BaiduAct extends AppCompatActivity {
-    private Button btStart,btPause,btResume,btStop;
+    private Button btStart,btPause,btResume,btStop,btVoice;
     private EditText editText;
 
     @Override
@@ -43,6 +44,7 @@ public class BaiduAct extends AppCompatActivity {
         btPause = (Button) findViewById(R.id.bt_baidu_pause);
         btResume = (Button) findViewById(R.id.bt_baidu_resume);
         btStop = (Button) findViewById(R.id.bt_baidu_stop);
+        btVoice = (Button) findViewById(R.id.btVoiceRecode);
         editText = (EditText) findViewById(R.id.et_baidu);
     }
 
@@ -66,5 +68,7 @@ public class BaiduAct extends AppCompatActivity {
         btStop.setOnClickListener(v -> {
             SyntheticInstance.getInstance().stop();
         });
+
+        btVoice.setOnClickListener(v -> startActivity(new Intent(this,VoiceRecodeAcitvity.class)));
     }
 }

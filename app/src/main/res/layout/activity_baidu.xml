@@ -44,4 +44,12 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/bt_baidu_start"/>
 
+    <Button
+        android:id="@+id/btVoiceRecode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="录音"
+        app:layout_constraintTop_toBottomOf="@id/et_baidu"
+        app:layout_constraintLeft_toLeftOf="@id/bt_baidu_start"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

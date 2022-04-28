@@ -171,7 +171,9 @@ public class MainAct extends AppCompatActivity {
                             Manifest.permission.ACCESS_NETWORK_STATE,
                             Manifest.permission.MODIFY_AUDIO_SETTINGS,
                             Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                            Manifest.permission.READ_EXTERNAL_STORAGE,
                             Manifest.permission.ACCESS_COARSE_LOCATION,
+                            Manifest.permission.RECORD_AUDIO,
                             Manifest.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
                             Manifest.permission.ACCESS_FINE_LOCATION,
                             Manifest.permission.CHANGE_WIFI_STATE)

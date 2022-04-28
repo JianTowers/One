@@ -33,6 +33,7 @@
         <entry key="..\:/AndroidProject/One/app/src/main/res/layout/log_item.xml" value="0.121875" />
         <entry key="..\:/AndroidProject/One/app/src/main/res/layout/popup_upgrade.xml" value="0.19429347826086957" />
         <entry key="..\:/AndroidProject/One/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1546875" />
+        <entry key="..\:/AndroidProject/test/One/app/src/main/res/layout/activity_baidu.xml" value="0.11503623188405797" />
         <entry key="..\:/AndroidProject/test/One/app/src/main/res/layout/activity_baidu_map.xml" value="0.19479166666666667" />
         <entry key="..\:/AndroidProject/test/One/app/src/main/res/layout/activity_bluetooth.xml" value="0.20572916666666666" />
         <entry key="..\:/AndroidProject/test/One/app/src/main/res/layout/activity_code.xml" value="0.15989583333333332" />
@@ -41,6 +42,7 @@
         <entry key="..\:/AndroidProject/test/One/app/src/main/res/layout/activity_instrumentation.xml" value="0.1793478260869565" />
         <entry key="..\:/AndroidProject/test/One/app/src/main/res/layout/activity_main.xml" value="0.19157608695652173" />
         <entry key="..\:/AndroidProject/test/One/app/src/main/res/layout/activity_notice.xml" value="0.18489583333333334" />
+        <entry key="..\:/AndroidProject/test/One/app/src/main/res/layout/activity_voice_recode_acitvity.xml" value="0.19791666666666666" />
         <entry key="..\:/AndroidProject/test/One/app/src/main/res/xml/access.xml" value="0.1793478260869565" />
       </map>
     </option>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".act.second.VoiceRecodeAcitvity">
+
+    <Button
+        android:id="@+id/btVoiceStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="讯飞开始"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/btVoiceStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="结束"
+        app:layout_constraintLeft_toRightOf="@id/btVoiceStart"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/btVoiceKXStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="康旭开始"
+        app:layout_constraintLeft_toRightOf="@id/btVoiceStop"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/btVoiceKXStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="结束"
+        app:layout_constraintLeft_toRightOf="@id/btVoiceKXStart"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/btVoiceTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="康旭测试"
+        app:layout_constraintTop_toBottomOf="@id/btVoiceStart"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <Button
+        android:id="@+id/btVoiceXunFei"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="讯飞开始识别"
+        app:layout_constraintTop_toBottomOf="@id/btVoiceTest"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <Button
+        android:id="@+id/btVoiceXunFeiStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="停止"
+        app:layout_constraintLeft_toRightOf="@id/btVoiceXunFei"
+        app:layout_constraintTop_toTopOf="@id/btVoiceXunFei"/>
+
+    <TextView
+        android:id="@+id/tvVoiceXunFei"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="讯飞识别"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/btVoiceXunFei"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
