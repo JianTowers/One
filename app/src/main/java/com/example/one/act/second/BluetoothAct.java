@@ -14,6 +14,9 @@ import android.widget.Button;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.example.one.R;
+import com.google.android.material.snackbar.Snackbar;
+import com.jaredrummler.materialspinner.MaterialSpinner;
+import com.jaredrummler.materialspinner.MaterialSpinnerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,6 +80,14 @@ public class BluetoothAct extends AppCompatActivity {
 //                LogUtils.d(bluetoothDevice.getName());
 //            }
         });
+
+        MaterialSpinner spinner = (MaterialSpinner) findViewById(R.id.spinner);
+        List<String> list = new ArrayList<>();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        list.add("4");
+        spinner.setAdapter(new MaterialSpinnerAdapter<>(this,list));
     }
 
     // 监听器监听蓝牙扫描结果

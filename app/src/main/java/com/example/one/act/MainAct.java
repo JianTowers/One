@@ -5,18 +5,19 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.blankj.utilcode.util.LogUtils;
@@ -48,6 +49,9 @@ import com.permissionx.guolindev.PermissionX;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MainAct extends AppCompatActivity {
     private Button btAlarm, btTherad, btObserver, btThread2, btString, btCode;
@@ -61,7 +65,7 @@ public class MainAct extends AppCompatActivity {
     private Button btWhiteList, btWeather, btWebView, btSplash;
     private Button btLowercase, btAnimation, btBaidu, btMq;
     private Button btEquipment, btInstrumentation, btFoundService, btBluetooth;
-    private Button btNavigation, btHotAct,btExcel;
+    private Button btNavigation, btHotAct, btExcel;
 
     /**
      * 闹钟管理器
@@ -199,6 +203,9 @@ public class MainAct extends AppCompatActivity {
         btSocket.setOnClickListener(v -> {
             startActivity(new Intent(MainAct.this, SocketAct.class));
         });
+
+
+
     }
 
     private void onRunSecond() {
@@ -262,12 +269,13 @@ public class MainAct extends AppCompatActivity {
                 decorView.setSystemUiVisibility(uiOptions);
             }
 
-
         });
 
         btHotAct.setOnClickListener(v -> startActivity(new Intent(MainAct.this, HotUpdateAct.class)));
 
         btExcel.setOnClickListener(v -> startActivity(new Intent(MainAct.this, ExcelActivity.class)));
+
+
     }
 
     /**
